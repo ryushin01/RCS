@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://projectlog.tistory.com/59 -->
+<html lang="ko" data-phocus-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/f.txt"></script><script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":4431337,"name":"projectlog","title":"Project.log","isDormancy":false,"nickName":"jinuk_","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://projectlog.tistory.com/59","DEFAULT_URL":"https://projectlog.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":59,"isAuthor":false,"categoryId":577141,"categoryLabel":"GIT"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://projectlog.tistory.com",
+    tistoryUrl: "https://projectlog.tistory.com",
+    manageUrl: "https://projectlog.tistory.com/manage",
+    token: "5KOMh0Cco+Y+BoM58X8/F0JpG68XJnEuzXlMau3wAGwaPDw1t5LLIDq1POhfUcRr"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="./깃 관리전략(git flow, github flow, gitlab flow)_files/style.css" rel="stylesheet" type="text/css">
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="./깃 관리전략(git flow, github flow, gitlab flow)_files/style(1).css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/tiara.min.js"></script><meta name="referrer" content="always">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="google-adsense-account" content="ca-pub-6436638607589561">
+<meta name="description" content="git flow, github flow, gitlab flow 의 개념 현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데, 그 중에서 가장 대표적인 방식인 git flow, github flow, gitlab flow 라는 3가지 관리 전략에 대해서 알아보겠습니다. (이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.) 1. Git Flow git flow 는 총 5 종류의 브랜치를 활용합니다. 주의할 점은 master, develop 은 각 브랜치가 영구적으로 존재하지만, hotfix, release, feature 브랜치의 경우 필요할 때마다 브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다. 전체적인 merge 순서는 다음과 같습니다. (merge 할..">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://projectlog.tistory.com/59">
+<meta property="og.article.author" content="jinuk_">
+<meta property="og:site_name" content="Project.log">
+<meta property="og:title" content="깃 관리전략(git flow, github flow, gitlab flow)">
+<meta name="by" content="jinuk_">
+<meta property="og:description" content="git flow, github flow, gitlab flow 의 개념 현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데, 그 중에서 가장 대표적인 방식인 git flow, github flow, gitlab flow 라는 3가지 관리 전략에 대해서 알아보겠습니다. (이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.) 1. Git Flow git flow 는 총 5 종류의 브랜치를 활용합니다. 주의할 점은 master, develop 은 각 브랜치가 영구적으로 존재하지만, hotfix, release, feature 브랜치의 경우 필요할 때마다 브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다. 전체적인 merge 순서는 다음과 같습니다. (merge 할..">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F0or1g%2FbtsnEopYCjJ%2FAAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8gr6e1qnrj1QNGHfXGsW1tahnKM%253D">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TISTORY">
+<meta name="twitter:title" content="깃 관리전략(git flow, github flow, gitlab flow)">
+<meta name="twitter:description" content="git flow, github flow, gitlab flow 의 개념 현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데, 그 중에서 가장 대표적인 방식인 git flow, github flow, gitlab flow 라는 3가지 관리 전략에 대해서 알아보겠습니다. (이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.) 1. Git Flow git flow 는 총 5 종류의 브랜치를 활용합니다. 주의할 점은 master, develop 은 각 브랜치가 영구적으로 존재하지만, hotfix, release, feature 브랜치의 경우 필요할 때마다 브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다. 전체적인 merge 순서는 다음과 같습니다. (merge 할..">
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F0or1g%2FbtsnEopYCjJ%2FAAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8gr6e1qnrj1QNGHfXGsW1tahnKM%253D">
+<meta content="https://projectlog.tistory.com/59" property="dg:plink">
+<meta name="plink">
+<meta name="title" content="깃 관리전략(git flow, github flow, gitlab flow)">
+<meta name="article:media_name" content="Project.log">
+<meta property="article:mobile_url" content="https://projectlog.tistory.com/m/59">
+<meta property="article:pc_url" content="https://projectlog.tistory.com/59">
+<meta property="article:mobile_view_url" content="https://projectlog.tistory.com/m/59">
+<meta property="article:pc_view_url" content="https://projectlog.tistory.com/59">
+<meta property="article:talk_channel_view_url" content="https://projectlog.tistory.com/m/59">
+<meta property="article:pc_service_home" content="https://www.tistory.com">
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m">
+<meta property="article:txid" content="4431337_59">
+<meta property="article:published_time" content="2023-07-14T17:26:15+09:00">
+<meta property="og:regDate" content="20230714052615">
+<meta property="article:modified_time" content="2023-07-14T17:26:15+09:00">
+<script type="module" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/index.js" defer=""></script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico">
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg">
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/font.css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/content.css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/index.css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/uselessPMargin.css">
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/base.js"></script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/kakao.min.js"></script>
+
+                
+  
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <title>깃 관리전략(git flow, github flow, gitlab flow)</title>
+  <link rel="alternate" type="application/rss+xml" title="Project.log" href="https://projectlog.tistory.com/rss">
+
+  <link rel="stylesheet" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/style(2).css">
+  <link rel="stylesheet" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/font(1).css">
+  <style>
+    .wrap_sub {
+      background-image: url('https://t1.daumcdn.net/tistory/0/Ray2/images/header_default.jpg');
+    }
+
+    
+  </style>
+
+  <!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+  <!--[if gte IE 9]><!-->
+  <script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <!--<![endif]-->
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/revenue.css">
+<link rel="canonical" href="https://projectlog.tistory.com/59">
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://projectlog.tistory.com/59","name":null},"url":"https://projectlog.tistory.com/59","headline":"깃 관리전략(git flow, github flow, gitlab flow)","description":"git flow, github flow, gitlab flow 의 개념 현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데, 그 중에서 가장 대표적인 방식인 git flow, github flow, gitlab flow 라는 3가지 관리 전략에 대해서 알아보겠습니다. (이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.) 1. Git Flow git flow 는 총 5 종류의 브랜치를 활용합니다. 주의할 점은 master, develop 은 각 브랜치가 영구적으로 존재하지만, hotfix, release, feature 브랜치의 경우 필요할 때마다 브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다. 전체적인 merge 순서는 다음과 같습니다. (merge 할..","author":{"@type":"Person","name":"jinuk_","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F0or1g%2FbtsnEopYCjJ%2FAAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8gr6e1qnrj1QNGHfXGsW1tahnKM%253D","width":"800px","height":"800px"},"datePublished":"2023-07-14T17:26:15+09:00","dateModified":"2023-07-14T17:26:15+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/dialog.css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/font(2).css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/postBtn.css">
+<link rel="stylesheet" type="text/css" href="./깃 관리전략(git flow, github flow, gitlab flow)_files/tistory.css">
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/common.js"></script>
+
+                
+                <style type="text/css">#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+
+                                                <body id="tt-body-page">
+                
+                
+                
+  
+
+    <div id="dkIndex">
+      <!--웹접근성용 바로가기 링크 모음-->
+      <a href="https://projectlog.tistory.com/59#dkBody">본문 바로가기</a>
+    </div>
+    <div id="dkWrap" class="wrap_skin">
+      <!-- 카테고리버튼 클릭시 'navi_on' 클래스 부여 -->
+      <div id="dkHead" role="banner" class="area_head">
+        <h1 class="screen_out">Project.log</h1>
+        <button type="button" class="btn_cate">
+          <span class="ico_skin ico_cate">카테고리</span>
+        </button>
+        <div class="area_search ">
+          <button type="button" class="btn_search">
+            <span class="ico_skin ico_search">검색하기</span>
+          </button>
+          
+            <form action="https://projectlog.tistory.com/59#" method="get" class="frm_search box_search" onsubmit="try {
+    window.location.href = &#39;/search&#39; + &#39;/&#39; + looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);
+    document.getElementsByName(&#39;search&#39;)[0].value = &#39;&#39;;
+    return false;
+} catch (e) {}">
+              <fieldset>
+                <legend class="screen_out">검색하기</legend>
+                <label for="search" class="lab_search screen_out">블로그 내 검색</label>
+                <input type="text" name="search" id="search" class="tf_search" placeholder="Search" value="" data-value="">
+                <span class="ico_skin ico_search"></span>
+              </fieldset>
+            </form>
+          
+        </div>
+        <div class="area_profile">
+          <div class="tit_post">
+            <a href="https://projectlog.tistory.com/" class="link_post">Project.log</a>
+          </div>
+          <span class="thumb_profile">
+            <img src="./깃 관리전략(git flow, github flow, gitlab flow)_files/0e058865f396430b9d11e6d019104292" class="img_profile" alt="프로필사진">
+          </span>
+          <span class="txt_profile">jinuk_</span>
+        </div>
+      </div>
+      <hr class="hide">
+      <div id="dkContent" class="cont_skin" role="main" style="height: auto !important;">
+        <div id="cMain" style="height: auto !important;">
+          <div id="mFeature" class="wrap_sub">
+            <div class="cont_sub">
+              <div class="inner_sub">
+                <div class="area_sub">
+                  <div role="navigation" class="area_navi">
+                    <ul class="tt_category"><li class=""><a href="https://projectlog.tistory.com/category" class="link_tit"> 전체보기 <span class="c_cnt">(62)</span> </a>
+  <ul class="category_list"><li class=""><a href="https://projectlog.tistory.com/category/HTML" class="link_item"> HTML <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/CSS" class="link_item"> CSS <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/JavaScript" class="link_item"> JavaScript <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/TypeScript" class="link_item"> TypeScript <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/React.js" class="link_item"> React.js <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/Next.js" class="link_item"> Next.js <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/API" class="link_item"> API <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/Python" class="link_item"> Python <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/GIT" class="link_item"> GIT <span class="c_cnt">(9)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/GitHub" class="link_item"> GitHub <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/Programming" class="link_item"> Programming <span class="c_cnt">(8)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://projectlog.tistory.com/category/Programming/JS%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4%20%ED%92%80%EC%9D%B4" class="link_sub_item"> JS 프로그래머스 풀이 <span class="c_cnt">(6)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/Programming/%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" class="link_sub_item"> 미니프로젝트 <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/Programming/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8%20JS" class="link_sub_item"> 코딩테스트 JS <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://projectlog.tistory.com/category/Theory" class="link_item"> Theory <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://projectlog.tistory.com/category/ETC" class="link_item"> ETC <span class="c_cnt">(25)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://projectlog.tistory.com/category/ETC/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4X%EC%95%BC%EB%86%80%EC%9E%90" class="link_sub_item"> 패스트캠퍼스X야놀자 <span class="c_cnt">(3)</span> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                    <a href="https://projectlog.tistory.com/guestbook" class="link_guestbook">Guestbook</a>
+                  </div>
+                  <div class="wrap_etc">
+                    <div class="col_aside left_side">
+                                              
+                          <!-- 공지사항 -->
+                          
+                            <div class="box_aside">
+                              <strong class="tit_aside">Notice</strong>
+                              <ul class="list_board">
+                                
+                              </ul>
+                            </div>
+                          
+                        
+                          <!-- 최근에 올라온 글 -->
+                          <div class="box_aside">
+                            <strong class="tit_aside">Recent Posts</strong>
+                            <ul class="list_board">
+                              
+                                <li><a href="https://projectlog.tistory.com/82" class="link_board">[JS] 함수 분석 및 정리</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/81" class="link_board">Firebase+Github Actions로 CI⋯</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/80" class="link_board">Firebase+React Hosting (파이어⋯</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/79" class="link_board">MockData (JSON Server)</a></li>
+                              
+                            </ul>
+                          </div>
+                        
+                          <!-- 최근에 달린 댓글 -->
+                          <div class="box_aside">
+                            <strong class="tit_aside">Recent Comments</strong>
+                            <ul class="list_board">
+                              
+                                <li><a href="https://projectlog.tistory.com/82#comment14656746" class="link_board">잘 보고갑니다.</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/82#comment14635330" class="link_board">잘 보고갑니다.</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/82#comment14625224" class="link_board">잘 보고갑니다.</a></li>
+                              
+                                <li><a href="https://projectlog.tistory.com/27#comment11056685" class="link_board">감사합니다!</a></li>
+                              
+                            </ul>
+                          </div>
+                        
+                          <!-- 링크 -->
+                          <div class="box_aside">
+                            <strong class="tit_aside">Link</strong>
+                            <ul class="list_board">
+                              
+                            </ul>
+                          </div>
+                        
+                    </div>
+
+
+                    <div class="col_aside right_side">
+                      
+                          <!-- 달력 -->
+                          <div class="box_aside box_calendar">
+                            <table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+  <caption class="cal_month"><a href="https://projectlog.tistory.com/archive/202506" title="1개월 앞의 달력을 보여줍니다.">«</a> &nbsp; <a href="https://projectlog.tistory.com/archive/202507" title="현재 달의 달력을 보여줍니다.">2025/07</a> &nbsp; <a href="https://projectlog.tistory.com/archive/202508" title="1개월 뒤의 달력을 보여줍니다.">»</a></caption>
+  <thead>
+    <tr>
+      <th class="cal_week2">일</th>
+      <th class="cal_week1">월</th>
+      <th class="cal_week1">화</th>
+      <th class="cal_week1">수</th>
+      <th class="cal_week1">목</th>
+      <th class="cal_week1">금</th>
+      <th class="cal_week1">토</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cal_week cal_current_week">
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day cal_day3">1</td>
+      <td class="cal_day cal_day3">2</td>
+      <td class="cal_day cal_day3">3</td>
+      <td class="cal_day cal_day3">4</td>
+      <td class="cal_day cal_day3">5</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">6</td>
+      <td class="cal_day cal_day3">7</td>
+      <td class="cal_day cal_day3">8</td>
+      <td class="cal_day cal_day3">9</td>
+      <td class="cal_day cal_day3">10</td>
+      <td class="cal_day cal_day3">11</td>
+      <td class="cal_day cal_day3">12</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">13</td>
+      <td class="cal_day cal_day3">14</td>
+      <td class="cal_day cal_day3">15</td>
+      <td class="cal_day cal_day3">16</td>
+      <td class="cal_day cal_day3">17</td>
+      <td class="cal_day cal_day3">18</td>
+      <td class="cal_day cal_day3">19</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">20</td>
+      <td class="cal_day cal_day3">21</td>
+      <td class="cal_day cal_day3">22</td>
+      <td class="cal_day cal_day3">23</td>
+      <td class="cal_day cal_day3">24</td>
+      <td class="cal_day cal_day3">25</td>
+      <td class="cal_day cal_day3">26</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday"><a href="https://projectlog.tistory.com/archive/20250727" class="cal_click">27</a></td>
+      <td class="cal_day cal_day3">28</td>
+      <td class="cal_day cal_day3">29</td>
+      <td class="cal_day cal_day3">30</td>
+      <td class="cal_day cal_day4">31</td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+    </tr>
+  </tbody>
+</table>
+                          </div>
+                        
+                          <!-- 태그 클라우드 -->
+                          <div class="box_aside box_tag">
+                            <strong class="tit_aside">Tags</strong>
+                            <ul class="list_tag">
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/Firebase" class="link_tag cloud4">Firebase</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EA%B9%83%EC%BB%A4%EB%B0%8B" class="link_tag cloud4">깃커밋</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%ED%81%B4%EB%A1%A0%EC%BD%94%EB%94%A9" class="link_tag cloud4">클론코딩</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EA%B5%AD%EB%B9%84%EC%A7%80%EC%9B%90%EC%B7%A8%EC%97%85" class="link_tag cloud4">국비지원취업</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%98%A4%EB%A5%98" class="link_tag cloud4">리액트오류</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/HTML" class="link_tag cloud4">HTML</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/typescript" class="link_tag cloud4">typescript</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8" class="link_tag cloud4">코딩테스트</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/javascript" class="link_tag cloud3">javascript</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" class="link_tag cloud3">자바스크립트</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/gitrevert" class="link_tag cloud4">gitrevert</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/gitcommit" class="link_tag cloud4">gitcommit</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/API" class="link_tag cloud4">API</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EA%B9%83%ED%97%88%EB%B8%8C" class="link_tag cloud4">깃허브</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4" class="link_tag cloud4">패스트캠퍼스</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/webdevcurriculum" class="link_tag cloud1">webdevcurriculum</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/Git" class="link_tag cloud3">Git</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C%EC%9E%90" class="link_tag cloud4">프론트엔드개발자</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/ReactError" class="link_tag cloud4">ReactError</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EB%A6%AC%EC%95%A1%ED%8A%B8" class="link_tag cloud4">리액트</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EA%B9%83%EB%B2%84%EC%A0%84" class="link_tag cloud4">깃버전</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/gitignore" class="link_tag cloud4">gitignore</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/js" class="link_tag cloud3">js</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/github" class="link_tag cloud4">github</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EA%B9%83" class="link_tag cloud3">깃</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%ED%8C%8C%EC%9D%B4%EC%96%B4%EB%B2%A0%EC%9D%B4%EC%8A%A4" class="link_tag cloud4">파이어베이스</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/react" class="link_tag cloud4">react</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%EC%95%BC%EB%86%80%EC%9E%90" class="link_tag cloud4">야놀자</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/nextjs" class="link_tag cloud4">nextjs</a>
+                                </li>
+                              
+                                <li><a href="https://projectlog.tistory.com/tag/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4" class="link_tag cloud4">프로그래머스</a>
+                                </li>
+                              
+                            </ul>
+                            <a href="https://projectlog.tistory.com/tag" class="link_more">more</a>
+                          </div>
+                        
+                          <!-- 글 보관함 -->
+                          <div class="box_aside box_archive">
+                            <strong class="tit_aside">Archives</strong>
+                            <ul class="list_keep">
+                              
+                                <li><a href="https://projectlog.tistory.com/archive/202507" class="link_keep">2025/07</a>
+                                  (1)</li>
+                              
+                            </ul>
+                          </div>
+                        
+                          <!-- 방문자수 -->
+                          <div class="box_aside box_visitor">
+                            <dl class="list_visitor">
+                              <dt>Today</dt>
+                              <dd>1</dd>
+                            </dl>
+                            <dl class="list_total">
+                              <dt>Total</dt>
+                              <dd>31,094</dd>
+                            </dl>
+                          </div>
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="ico_skin btn_close">닫기</button>
+
+              <strong class="screen_out">관리 메뉴</strong>
+              <ul class="list_control">
+                <li><a href="https://projectlog.tistory.com/manage/entry/post" class="ico_skin link_write" title="글쓰기">글쓰기</a></li>
+                <li><a href="https://projectlog.tistory.com/guestbook" class="ico_skin link_memo" title="방명록">방명록</a></li>
+                <li><a href="https://projectlog.tistory.com/rss" class="ico_skin link_rss" title="RSS">RSS</a></li>
+                <li><a href="https://projectlog.tistory.com/manage" class="ico_skin link_manage" title="관리">관리</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="mArticle" class="article_skin" style="height: auto !important; min-height: 0px !important;">
+
+            
+
+            <div class="index_title">
+              <h2 class="tit_skin"><span class="txt_title">Project.log</span></h2>
+            </div>
+
+                
+        
+  
+
+
+  
+    <h2 id="dkBody" class="screen_out">깃 관리전략(git flow, github flow, gitlab flow) 본문</h2>
+    <div class="area_title">
+      <strong class="tit_category"><a href="https://projectlog.tistory.com/category/GIT">GIT</a></strong>
+      <h3 class="tit_post">깃 관리전략(git flow, github flow, gitlab flow)</h3>
+      <span class="info_post">jinuk_
+        <span class="txt_bar"></span>2023. 7. 14. 17:26
+        
+      </span>
+    </div>
+
+    <div class="area_view" id="article-view" style="height: auto !important; min-height: 0px !important;">
+      <script onerror="changeAdsenseToNaverAd()" async="" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/f(1).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- inventory -->
+<ins class="adsbygoogle" style="margin: 50px 0px; display: block; height: 0px;" data-ad-client="ca-pub-9527582522912841" data-ad-slot="3825649038" data-ad-format="auto" data-full-width-responsive="true" data-ad-type="inventory" data-ad-adfit-unit="DAN-nRFiQiN4avFYIKbk" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 0px; width: 837px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 837px; height: 0px; min-height: auto; max-height: none; min-width: auto; max-width: none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="837" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ads.html" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true" data-google-query-id="CNvvq7Dk5Y4DFVtEwgUddpUnNg"></iframe></div></ins>
+
+<script id="adsense_script">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    if(window.observeAdsenseUnfilledState !== undefined){ observeAdsenseUnfilledState(); }
+</script>
+<div data-tistory-react-app="NaverAd"><div style="padding: 0px 20px; margin: 15px 0px; border: 1px solid rgb(238, 238, 238);"><div style="padding: 16px 0px 18px; border-top: none;"><div style="display: flex; height: 24px; align-items: center; margin-bottom: 6px;"><a href="https://ader.naver.com/v1/9W9Cy4RYYPHho2l23_--L9CS6CPuNpB5eNDC-3s1kWccmFC7whN8SX7qzrS1dtTPo7rXfCwCdoPW0dM65gQsFYaN4tMELq--61l1o5Z-OlLpFWqAhK33Xj1q7tq3jcEFtClpj_ivfG_u6Zz7hCHdZmASzSTRdp6s6b-nHk6B0mrz0AzsXXYFrEpyUy4BYZF9pEDJrFZEC6eyDQiIY5IkAVaVDNKURKvmOGHSSIc6OcLUAhJzlBr4G_wG8bzUVPdH0bT644iYD-Nx09uvCzURTfAl3udyUCX8HOoyF_PLX3mTqbzLD-SS8U1bQeFM5RQ85L9UpsdMbfp1BX2WHzY0vQuZKX8pTmbqsL8XSeElDYONOFb3jRuDuZeUKzSkT7raqWwEFRYWksKuthFpkwBVZNhoVrRIY6VUuWObiVThOcAtKnKmhmxGjx3JYg_14OlITQirwi7FpcOGkUnqHjMHruVKw_bFfbBECXu00qEdPRQ14iBEf6L0cyxH0K4uhPyA0E_f6DCtBis4BFU2U7Udkiilcw6QAN8IS1ulR78cm59XwNpscyk0k5XOA64etcK0FQ6h3bfynRw8GnQrCgk-8Q==?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="font-size: 14px; line-height: 17px; color: rgb(153, 153, 153); text-decoration: none; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical; text-overflow: ellipsis; word-break: break-all;">http://bithumb.com</a><span style="display: flex; height: 18px; margin-left: 4px; padding: 0px 5px 0px 6px; border: 1px solid rgb(221, 221, 221); border-radius: 17px; font-weight: 500; font-size: 11px; color: rgb(102, 102, 102); align-items: center; flex-shrink: 0;">광고</span></div><div style="display: flex; overflow: hidden; height: 80px;"><div style="overflow: hidden; padding-right: 40px;"><a href="https://ader.naver.com/v1/9W9Cy4RYYPHho2l23_--L9CS6CPuNpB5eNDC-3s1kWccmFC7whN8SX7qzrS1dtTPo7rXfCwCdoPW0dM65gQsFYaN4tMELq--61l1o5Z-OlLpFWqAhK33Xj1q7tq3jcEFtClpj_ivfG_u6Zz7hCHdZmASzSTRdp6s6b-nHk6B0mrz0AzsXXYFrEpyUy4BYZF9pEDJrFZEC6eyDQiIY5IkAVaVDNKURKvmOGHSSIc6OcLUAhJzlBr4G_wG8bzUVPdH0bT644iYD-Nx09uvCzURTfAl3udyUCX8HOoyF_PLX3mTqbzLD-SS8U1bQeFM5RQ85L9UpsdMbfp1BX2WHzY0vQuZKX8pTmbqsL8XSeElDYONOFb3jRuDuZeUKzSkT7raqWwEFRYWksKuthFpkwBVZNhoVrRIY6VUuWObiVThOcAtKnKmhmxGjx3JYg_14OlITQirwi7FpcOGkUnqHjMHruVKw_bFfbBECXu00qEdPRQ14iBEf6L0cyxH0K4uhPyA0E_f6DCtBis4BFU2U7Udkiilcw6QAN8IS1ulR78cm59XwNpscyk0k5XOA64etcK0FQ6h3bfynRw8GnQrCgk-8Q==?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: -webkit-box; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical; text-decoration: none; font-size: 18px; line-height: 24px; color: rgb(1, 109, 215);">대한민국 1등 거래소, 빗썸 국내 거래소 유동성 1위</a><a href="https://ader.naver.com/v1/9W9Cy4RYYPHho2l23_--L9CS6CPuNpB5eNDC-3s1kWccmFC7whN8SX7qzrS1dtTPo7rXfCwCdoPW0dM65gQsFYaN4tMELq--61l1o5Z-OlLpFWqAhK33Xj1q7tq3jcEFtClpj_ivfG_u6Zz7hCHdZmASzSTRdp6s6b-nHk6B0mrz0AzsXXYFrEpyUy4BYZF9pEDJrFZEC6eyDQiIY5IkAVaVDNKURKvmOGHSSIc6OcLUAhJzlBr4G_wG8bzUVPdH0bT644iYD-Nx09uvCzURTfAl3udyUCX8HOoyF_PLX3mTqbzLD-SS8U1bQeFM5RQ85L9UpsdMbfp1BX2WHzY0vQuZKX8pTmbqsL8XSeElDYONOFb3jRuDuZeUKzSkT7raqWwEFRYWksKuthFpkwBVZNhoVrRIY6VUuWObiVThOcAtKnKmhmxGjx3JYg_14OlITQirwi7FpcOGkUnqHjMHruVKw_bFfbBECXu00qEdPRQ14iBEf6L0cyxH0K4uhPyA0E_f6DCtBis4BFU2U7Udkiilcw6QAN8IS1ulR78cm59XwNpscyk0k5XOA64etcK0FQ6h3bfynRw8GnQrCgk-8Q==?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; padding-top: 4px; text-decoration: none; font-size: 16px; line-height: 22px; color: rgb(51, 51, 51);">빠르고 안전한 거래는? 가입자 수, 거래유동성, 브랜드평판, 방문자 수 1위 빗썸</a></div><a href="https://ader.naver.com/v1/U_dB77cdz4pbtOqlWyI95fBXCKAKy1Vnwlc49Py7M2S3xuIj5lQS-sMmvtnNLiEOcKXttgfOZ7pUt2PgX15R_qxUhsn_jxdDw9MNC3yG1i7Z9V9Zvwd8sN0cgmBVwXbHOYwItaBhdB4vLnsCAjmLxGGu1ennk6tCAF_ZgMDzbjeTW7AGQDdFCCrYOPrqOZUy--zvVbOLSMtmQJ07LUHlZUqLUiokiEPW7PjLCdO0EvauQKSDTSmMvWHk1ei8qqw4pDeORRgz_GRUYrBWpBp414_C9QbyfKDg9h8bxw_eSw0iuAL2wieKSsvLwV1sVc_q3p8YGxAyYy7uG41r2pu_ZD95dBVlPQJWRno8yVTRLA6f79djudSnjA2TK0zEBugnJK6KI81DqmQ6I1B11QzMKITTYk9LfalkwW9awsLu5mzbV7EOXYxfjaP_ZEEmjEusvGfQ0wD8dbAY9Vs8nExp4aQmDDyNLjh9t43toin5n4DqVidhwFtT0sIqXjuSl99Ymr8bjXL4Lv8SNJChi0W-loMlQtkZG_KouhNQ7Uq3hkCTrMnWt3xCAurtwaLa783XI9sZM_Xj9U6fVVQnbTz8ZQXQvOzDFA1EC4UcY58v-48=?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: block; overflow: hidden; margin-left: auto; border-radius: 8px; flex: 0 0 80px;"><img alt="" height="80" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/1412647-f23059db-eacc-486a-a4b7-f63e87f075a4.png" width="80"></a></div></div><div style="padding: 16px 0px 18px; border-top: 1px solid rgb(238, 238, 238);"><div style="display: flex; height: 24px; align-items: center; margin-bottom: 6px;"><a href="https://ader.naver.com/v1/T8kz7vT5_jJ3ZfYBqA7jd7Iqr8uDirmFpHmIYp3DKpdYIPjJS366oGxUhPEoQl19X5K4SBA3Di_ePWhxehq7p1iLf3leaduSRfHAtfkpfZ1HDiDKfZMOst4JLUgixxT-XgcNpgQrOvpN3-Uz7y1JiUoqZTrdNOjLxhFKbfRrAExpumFd2oGMbp55VoF1Esn3f8XqyQ18YZZvKVM3ZeeIP9hi48Lwzsb9-ReE3NK2XjQSWlHfC2hhKgjnj7Nqmk2PJlvDpeIoZeONOmgx1K-CZ6Gc3J_XQmJS4O6H9TVu6HU7vtca0PoTHmmmwrDne8BGSfb_ljCL78lydh2cfBWKsOVGOqGIF-pw4qo3ZMbHUSppmiK3K_IR0ppigHKzHfAE8hS57P3EdKwsC79VVAADdTh2yulcnmXx48hWkl4iP2Y=?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="font-size: 14px; line-height: 17px; color: rgb(153, 153, 153); text-decoration: none; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical; text-overflow: ellipsis; word-break: break-all;">https://creatorlink.net</a><span style="display: flex; height: 18px; margin-left: 4px; padding: 0px 5px 0px 6px; border: 1px solid rgb(221, 221, 221); border-radius: 17px; font-weight: 500; font-size: 11px; color: rgb(102, 102, 102); align-items: center; flex-shrink: 0;">광고</span></div><div style="display: flex; overflow: hidden; height: 80px;"><div style="overflow: hidden; padding-right: 40px;"><a href="https://ader.naver.com/v1/T8kz7vT5_jJ3ZfYBqA7jd7Iqr8uDirmFpHmIYp3DKpdYIPjJS366oGxUhPEoQl19X5K4SBA3Di_ePWhxehq7p1iLf3leaduSRfHAtfkpfZ1HDiDKfZMOst4JLUgixxT-XgcNpgQrOvpN3-Uz7y1JiUoqZTrdNOjLxhFKbfRrAExpumFd2oGMbp55VoF1Esn3f8XqyQ18YZZvKVM3ZeeIP9hi48Lwzsb9-ReE3NK2XjQSWlHfC2hhKgjnj7Nqmk2PJlvDpeIoZeONOmgx1K-CZ6Gc3J_XQmJS4O6H9TVu6HU7vtca0PoTHmmmwrDne8BGSfb_ljCL78lydh2cfBWKsOVGOqGIF-pw4qo3ZMbHUSppmiK3K_IR0ppigHKzHfAE8hS57P3EdKwsC79VVAADdTh2yulcnmXx48hWkl4iP2Y=?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: -webkit-box; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical; text-decoration: none; font-size: 18px; line-height: 24px; color: rgb(1, 109, 215);">크리에이터링크 GITHUB</a><a href="https://ader.naver.com/v1/T8kz7vT5_jJ3ZfYBqA7jd7Iqr8uDirmFpHmIYp3DKpdYIPjJS366oGxUhPEoQl19X5K4SBA3Di_ePWhxehq7p1iLf3leaduSRfHAtfkpfZ1HDiDKfZMOst4JLUgixxT-XgcNpgQrOvpN3-Uz7y1JiUoqZTrdNOjLxhFKbfRrAExpumFd2oGMbp55VoF1Esn3f8XqyQ18YZZvKVM3ZeeIP9hi48Lwzsb9-ReE3NK2XjQSWlHfC2hhKgjnj7Nqmk2PJlvDpeIoZeONOmgx1K-CZ6Gc3J_XQmJS4O6H9TVu6HU7vtca0PoTHmmmwrDne8BGSfb_ljCL78lydh2cfBWKsOVGOqGIF-pw4qo3ZMbHUSppmiK3K_IR0ppigHKzHfAE8hS57P3EdKwsC79VVAADdTh2yulcnmXx48hWkl4iP2Y=?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: -webkit-box; overflow: hidden; -webkit-line-clamp: 2; -webkit-box-orient: vertical; padding-top: 4px; text-decoration: none; font-size: 16px; line-height: 22px; color: rgb(51, 51, 51);">100%무료 도메인! 호스팅! 컴맹도 코딩없이 직접 만드는 홈페이지. 셀프제작!</a></div><a href="https://ader.naver.com/v1/viXOQC0ayM2PX-Yp7J7QIiKtw_0vM-j6qbv6IfSef6LB2b9RMUVVXbQSDHTONp5MghbNtuh-GGzMKZ-Adpt0y5EAx27yXlhVHC2r8tTlv8xo-ozlEaqPZCfn53dhaz2acP5Ypn9jn5eopbPhCV6UVA9eNb5SGZq8JeDEZCM3K4_P1pU1_-0TsijOF621BdXT9XRc_VLwzA3Pln2kGS5TggMul4KrECAGUUIBRMUzQkwfia56yNxT_1ZO4zn6S7cocjTHUf4V57bhFEzqspxVW6nqVcU4CpOx0XJoqCnKeqNITG85QlLYLG9wYT1YhWdSwCd-b6NnV3Ii6U3Sjdt_nel-K8sQgFwLajtGWl3JTManhM4H4FKu42_ZsCOEwj1fUL-bHCK9g5uzswxV8WZsdjXq0dbt8w-PAp0uH4ZOfSBOgpr4b4-wlsfEl2YUBkud?c=tistory.ch1&amp;t=0" rel="noreferrer" target="_blank" style="display: block; overflow: hidden; margin-left: auto; border-radius: 8px; flex: 0 0 80px;"><img alt="" height="80" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/1100445-a6abf670-3172-4ed6-94c3-7f18f85f4832.jpg" width="80"></a></div></div></div></div>
+
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adfit">
+    <div class="revenue_unit_info">728x90</div>
+    <ins class="kakao_ad_area" style="display: none;" data-ad-unit="DAN-2Sab2xl25kjcNFje" data-ad-width="728px" data-ad-height="90px" id="kakao_ad_G7uk7T"></ins>
+    <script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ba.min.js" async="async"></script>
+  </div>
+</div>
+<div class="revenue_unit_wrap" style="width: 837px; height: 350px;">
+  <div class="revenue_unit_item adsense responsive" style="width: 837px; height: 350px;">
+    <div class="revenue_unit_info">반응형</div>
+    <script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/f(2).txt" async="async"></script>
+    <ins class="adsbygoogle" style="display: block; height: 350px; width: 837px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-6436638607589561" data-ad-format="auto" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 350px; width: 837px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 837px; height: 350px; min-height: auto; max-height: none; min-width: auto; max-width: none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="837" height="350" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ads(1).html" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CPv0grXk5Y4DFXtFwgUduXweww" data-load-complete="true"></iframe></div></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+        <!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-filename="다운로드 (1).png" data-origin-width="600" data-origin-height="600"><span data-url="https://blog.kakaocdn.net/dna/0or1g/btsnEopYCjJ/AAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=8gr6e1qnrj1QNGHfXGsW1tahnKM%3D" data-phocus="https://blog.kakaocdn.net/dna/0or1g/btsnEopYCjJ/AAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=8gr6e1qnrj1QNGHfXGsW1tahnKM%3D"><img src="./깃 관리전략(git flow, github flow, gitlab flow)_files/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F0or1g%2FbtsnEopYCjJ%2FAAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8gr6e1qnrj1QNGHfXGsW1tahnKM%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="300" height="300" data-filename="다운로드 (1).png" data-origin-width="600" data-origin-height="600" data-phocus-index="0"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b> git flow, github flow, gitlab flow 의 개념</b></p>
+<p data-ke-size="size16">현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데,</p>
+<p data-ke-size="size16">그 중에서 가장 대표적인 방식인 <b>git flow, github flow, gitlab flow</b> 라는 3가지 관리 전략에 대해서 알아보겠습니다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">(이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.)</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26"><b><span data-token-index="0">1. Git Flow</span></b></h2>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-filename="Screen Shot 2022-10-17 at 7.40.30 PM.png" data-origin-width="2116" data-origin-height="1070"><span data-url="https://blog.kakaocdn.net/dna/7gR0a/btsnDCo620q/AAAAAAAAAAAAAAAAAAAAALRYGDqR5ii6DMlWMnEjIWqi787tRgzAP2Bg6g4W6mcd/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=PKuxS%2BVCdguV5RgD1WDGy8ibigc%3D" data-phocus="https://blog.kakaocdn.net/dna/7gR0a/btsnDCo620q/AAAAAAAAAAAAAAAAAAAAALRYGDqR5ii6DMlWMnEjIWqi787tRgzAP2Bg6g4W6mcd/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=PKuxS%2BVCdguV5RgD1WDGy8ibigc%3D" data-alt="(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )"><img src="./깃 관리전략(git flow, github flow, gitlab flow)_files/img(1).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F7gR0a%2FbtsnDCo620q%2FAAAAAAAAAAAAAAAAAAAAALRYGDqR5ii6DMlWMnEjIWqi787tRgzAP2Bg6g4W6mcd%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DPKuxS%252BVCdguV5RgD1WDGy8ibigc%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="2116" height="1070" data-filename="Screen Shot 2022-10-17 at 7.40.30 PM.png" data-origin-width="2116" data-origin-height="1070" data-phocus-index="1"></span><figcaption>(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16"><b>git flow</b> 는 총 5 종류의 브랜치를 활용합니다.</p>
+<p data-ke-size="size16">주의할 점은 <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span>, <span style="background-color: #dddddd; color: #ee2323;"><b>develop</b></span> 은 각 브랜치가 영구적으로 존재하지만, <span style="color: #ee2323; background-color: #dddddd;"><b>hotfix</b></span>, <span style="color: #ee2323; background-color: #dddddd;"><b>release</b></span>, <span style="color: #ee2323; background-color: #dddddd;"><b>feature</b></span> 브랜치의 경우 필요할 때마다</p>
+<p data-ke-size="size16">브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다.</p>
+<p data-ke-size="size16">전체적인 merge 순서는 다음과 같습니다. (merge 할 때는 항상 <b><span style="color: #ee2323; background-color: #dddddd;">--no-ff</span></b> 옵션을 붙입니다.)</p>
+<p data-ke-size="size16"><b><span style="color: #ee2323; background-color: #dddddd;">feature</span></b> →<span style="color: #ee2323; background-color: #dddddd;"><b> develop</b></span> → <b><span style="color: #ee2323; background-color: #dddddd;">release</span></b> → <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>1. master 브랜치 (main 브랜치)</b></p>
+<p data-ke-size="size16">소비자가 사용하는 제품이 존재하는 (<b>배포될 코드가 있는</b>) 브랜치입니다.</p>
+<p data-ke-size="size16">release 브랜치로부터 pull request 받습니다.</p>
+<p data-ke-size="size16">부모 브랜치: X</p>
+<p data-ke-size="size16">자손 브랜치 (분기해서 생성되는 브랜치): <span style="color: #ee2323; background-color: #dddddd;"><b>hotfix</b></span>, <b><span style="color: #ee2323; background-color: #dddddd;">develop</span></b></p>
+<p data-ke-size="size16">PR받는 브랜치 (pull request 받는 브랜치): <b><span style="color: #ee2323; background-color: #dddddd;">release</span></b></p>
+<p data-ke-size="size16">PR나가는 브랜치 (pull request 보내는 브랜치): X</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>2. hotfix 브랜치</b></p>
+<p data-ke-size="size16">배포된 서비스에 대한 <b>긴급 버그 수정</b>을 진행하는 브랜치입니다.</p>
+<p data-ke-size="size16">hotfix 브랜치는 만들 때 <b><span style="color: #ee2323; background-color: #dddddd;">hotfix-* (hotfix-1)</span></b> 과 같은 형태로 이름을 지정해서 만듭니다.</p>
+<p data-ke-size="size16">수정이 완료되면, develop 과 master 브랜치 각각에 pr 을 날립니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">자손 브랜치: X</p>
+<p data-ke-size="size16">PR받는 브랜치: X</p>
+<p data-ke-size="size16">PR나가는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>develop</b></span>, <span style="background-color: #dddddd;"><b><span style="color: #ee2323;">master</span></b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>3. release 브랜치</b></p>
+<p data-ke-size="size16">배포 전에 제품을 테스트 (<b>QA, 품질검사</b>) 하는 브랜치입니다.</p>
+<p data-ke-size="size16">release 브랜치는 만들 때 <span style="color: #ee2323; background-color: #dddddd;"><b>release-* (release-1)</b></span> 과 같은 형태로 이름을 지정해서 만듭니다.</p>
+<p data-ke-size="size16">테스트가 정상적으로 완료되면, develop 과 master 브랜치 각각에 pr 을 날립니다. pr merge 가 완료되면, 브랜치를 삭제합니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>develop</b></span></p>
+<p data-ke-size="size16">자손 브랜치: X</p>
+<p data-ke-size="size16">PR받는 브랜치: X</p>
+<p data-ke-size="size16">PR나가는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>develop</b></span>, <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>4. develop 브랜치</b></p>
+<p data-ke-size="size16">개발 단계의 코드가 있는 (<b>개발의 중심</b>) 브랜치입니다.</p>
+<p data-ke-size="size16">개발 자체는 feature 브랜치에서 진행하고, 기능 하나 구현이 완료되면 develop 브랜치로 pr 을 날립니다. 이러한 과정을 반복하면서 특정 단계까지 개발이 완료되면, develop 브랜치를 베이스로 해서 테스트를 위한 release 브랜치를 새롭게 만듭니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">자손 브랜치: <span style="background-color: #dddddd; color: #ee2323;"><b>feature</b></span>, <span style="background-color: #dddddd; color: #ee2323;"><b>release</b></span></p>
+<p data-ke-size="size16">PR받는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>feature</b></span></p>
+<p data-ke-size="size16">PR나가는 브랜치: X</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b><span style="font-family: -apple-system, BlinkMacSystemFont, &#39;Helvetica Neue&#39;, &#39;Apple SD Gothic Neo&#39;, Arial, sans-serif; letter-spacing: 0px;">5. feature 브랜치</span></b></p>
+<p data-ke-size="size16"><b>특정한 기능 (단위 기능) 을 구현</b>하는 브랜치입니다.</p>
+<p data-ke-size="size16">feature 브랜치는 만들 때 <span style="color: #ee2323; background-color: #dddddd;"><b>feature/* (feature/기능명)</b></span> 과 같은 형태로 이름을 지정해서 만듭니다.</p>
+<p data-ke-size="size16">기능 구현이 완료되면, develop 브랜치로 pr 을 날립니다. merge 되면 브랜치는 삭제됩니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>develop</b></span></p>
+<p data-ke-size="size16">자손 브랜치: X</p>
+<p data-ke-size="size16">PR받는 브랜치: X</p>
+<p data-ke-size="size16">PR나가는 브랜치: <b><span style="color: #ee2323; background-color: #dddddd;">develop</span></b></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b><span style="color: #ee2323;">Git Flow</span> 는 다음과 같은 경우에 유용합니다.</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>큰 규모의 팀 + 안정성</li>
+<li>퀄리티 보장이 중요한 프로덕트</li>
+<li>release 된 프로덕트에 대한 관리 사이클이 긴 경우</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>간단하게 다시 정리해보면</b></p>
+<p data-ke-size="size16">master(main)는 마스터(메인)브런치</p>
+<p data-ke-size="size16">hot fix는 배포된코드에서 바로분기해서 고치고 배포된코드에 반영한다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">master에서 develop분기</p>
+<p data-ke-size="size16">각기능개발을 위해서 feature브런치를 만들고 개발을 하고 완료했다면</p>
+<p data-ke-size="size16">개발이 완료될때마다 develop에 pr 날려서 병합</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">devlop에서 테스트하기위해서 release로 분기하고</p>
+<p data-ke-size="size16">그 이후 master로 pr(pull request)을 날림</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">근데 오류가 발생했다?면</p>
+<p data-ke-size="size16"><span>-&gt; hotfix</span>브런치로<span> </span>분기하고<span> </span>수정<span> </span>혹은<span> </span>고친뒤에<span> </span>다시마스터로</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26"><b>2. Github flow</b></h2>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-filename="Screen Shot 2022-10-17 at 7.40.15 PM.png" data-origin-width="2136" data-origin-height="954"><span data-url="https://blog.kakaocdn.net/dna/GWb9L/btsnzE2FhQZ/AAAAAAAAAAAAAAAAAAAAAJJUxTQH7YgWe6FB3hqumeWhcFZvm9eD11akb7tGxwLL/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=kcPyN4HnyjiQvEiL%2FUpYNCkA17A%3D" data-phocus="https://blog.kakaocdn.net/dna/GWb9L/btsnzE2FhQZ/AAAAAAAAAAAAAAAAAAAAAJJUxTQH7YgWe6FB3hqumeWhcFZvm9eD11akb7tGxwLL/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=kcPyN4HnyjiQvEiL%2FUpYNCkA17A%3D" data-alt="(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )"><img src="./깃 관리전략(git flow, github flow, gitlab flow)_files/img(2).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FGWb9L%2FbtsnzE2FhQZ%2FAAAAAAAAAAAAAAAAAAAAAJJUxTQH7YgWe6FB3hqumeWhcFZvm9eD11akb7tGxwLL%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DkcPyN4HnyjiQvEiL%252FUpYNCkA17A%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="2136" height="954" data-filename="Screen Shot 2022-10-17 at 7.40.15 PM.png" data-origin-width="2136" data-origin-height="954" data-phocus-index="2"></span><figcaption>(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16"><b>Github Flow</b> 는 딱 2가지 종류의 브랜치만 사용합니다.</p>
+<p data-ke-size="size16">Git Flow 는 큰 규모의 팀 + 안정성이 매우 중요한 서비스에서 사용하면 좋지만, <b>작은 규모의 팀 + 빠른 개발과 업데이트</b>가 중요한 서비스에서는 오히려 비효율적으로 작용합니다.</p>
+<p data-ke-size="size16">그렇기 때문에 Github Flow 는 단 2개의 브랜치만을 사용하며, 배포용 브랜치인 master, 각 단위 기능 구현을 위한 브랜치인 feature 로 구성됩니다. feature 브랜치는 merge 후에 삭제됩니다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>1. master 브랜치 (main 브랜치)</b></p>
+<p data-ke-size="size16">소비자가 사용하는 제품이 존재하는 (<b>배포될 코드가 있는</b>) 브랜치입니다.</p>
+<p data-ke-size="size16">(해당 브랜치는 push 를 받으면 자동으로 실제 서비스로 배포되도록 설정되어있습니다.)</p>
+<p data-ke-size="size16">feature 브랜치에서 단위 기능 구현이 완료될 때마다 pull request 를 받습니다. (여기서 해당 브랜치를 merge 하기 전에 테스트를 진행합니다.)</p>
+<p data-ke-size="size16">부모 브랜치: X</p>
+<p data-ke-size="size16">자손 브랜치 (분기해서 생성되는 브랜치): <span style="color: #ee2323; background-color: #dddddd;"><b>feature</b></span></p>
+<p data-ke-size="size16">PR받는 브랜치 (pull request 받는 브랜치): <b><span style="color: #ee2323; background-color: #dddddd;">feature</span></b></p>
+<p data-ke-size="size16">PR나가는 브랜치 (pull request 보내는 브랜치): X</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>2.feature 브랜치</b></p>
+<p data-ke-size="size16"><b>특정한 기능 (단위 기능) 을 구현</b>하는 브랜치입니다.</p>
+<p data-ke-size="size16">feature 브랜치는 만들 때 git flow 보다 더 구체적으로, 명확하게 작업명을 작성해서 만듭니다. (단순히 feature/* 가 아니라 버그 해결인지, 기능 추가인지 등을 명확히 명시)</p>
+<p data-ke-size="size16">기능 구현이 완료되면, master 브랜치로 pr 을 날립니다. merge 되면 브랜치는 삭제됩니다.</p>
+<p data-ke-size="size16">부모 브랜치: <b><span style="background-color: #dddddd; color: #ee2323;">master</span></b></p>
+<p data-ke-size="size16">자손 브랜치 (분기해서 생성되는 브랜치): X</p>
+<p data-ke-size="size16">PR받는 브랜치 (pull request 받는 브랜치): X</p>
+<p data-ke-size="size16">PR나가는 브랜치 (pull request 보내는 브랜치): <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>Github Flow 는 다음과 같은 경우에 유용합니다.</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>작은 규모의 팀</li>
+<li>release 된 프로덕트에 대한 관리 사이클이 짧은 경우 (업데이트 주기가 짧은 경우)</li>
+<li>빠른 배포와 관리가 필요한 경우</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>간단하게 다시 정리해보면&nbsp;</b></p>
+<p data-ke-size="size16">필요할때마다 feature브랜치로 분기해서 사용하면되고 master가<span style="color: #333333; text-align: start;"><span>&nbsp;</span></span>자동배포로<span style="color: #333333; text-align: start;"><span>&nbsp;</span></span>연결되어<span style="color: #333333; text-align: start;"><span>&nbsp;</span></span>있다.</p>
+<p data-ke-size="size16">작은규모의 팀단위로 빠른개발을 할때 쓰인다고 보면 되겠습니다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26"><b>3. Gitlab flow</b></h2>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-filename="Screen Shot 2022-10-17 at 7.56.41 PM.png" data-origin-width="2670" data-origin-height="1130"><span data-url="https://blog.kakaocdn.net/dna/xqSdO/btsnC5ewFx1/AAAAAAAAAAAAAAAAAAAAAGhWwi07dk4eTBLlcD9ntuAv9Yzp_ky6DwGkXUc793gp/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=CKjFYxLZYp4Bu6o1SHGvay7Ng1I%3D" data-phocus="https://blog.kakaocdn.net/dna/xqSdO/btsnC5ewFx1/AAAAAAAAAAAAAAAAAAAAAGhWwi07dk4eTBLlcD9ntuAv9Yzp_ky6DwGkXUc793gp/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=CKjFYxLZYp4Bu6o1SHGvay7Ng1I%3D" data-alt="(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )"><img src="./깃 관리전략(git flow, github flow, gitlab flow)_files/img(3).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FxqSdO%2FbtsnC5ewFx1%2FAAAAAAAAAAAAAAAAAAAAAGhWwi07dk4eTBLlcD9ntuAv9Yzp_ky6DwGkXUc793gp%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DCKjFYxLZYp4Bu6o1SHGvay7Ng1I%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="2670" height="1130" data-filename="Screen Shot 2022-10-17 at 7.56.41 PM.png" data-origin-width="2670" data-origin-height="1130" data-phocus-index="3"></span><figcaption>(사진 출처: https://www.youtube.com/watch?v=w2r0oLFtXAw )</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16"><b>Gitlab Flow</b> 는 4종류의 브랜치를 사용합니다.</p>
+<p data-ke-size="size16">github flow 는 테스트를 위한 브랜치가 없고, 배포용 브랜치가 따로 없기 때문에 큰 규모의 서비스에는 적합하지 않습니다. 그래서 github flow 의 단순함과 git flow 의 체계적인 관리를 합쳐서 절충적으로 git 을 활용하는 방식이 바로 gitlab flow 입니다.</p>
+<p data-ke-size="size16">pre-production 브랜치가 테스트를 담당하고, master 브랜치가 개발용 브랜치로 역할합니다. feature 브랜치는 다른 flow 와 마찬가지로 merge 되면 삭제됩니다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>1. production 브랜치</b></p>
+<p data-ke-size="size16">소비자가 사용하는 제품이 존재하는 (배포될 코드가 있는) 브랜치입니다.</p>
+<p data-ke-size="size16">pre-production 브랜치로부터 pull request 받습니다.</p>
+<p data-ke-size="size16">부모 브랜치:<span style="color: #ee2323; background-color: #dddddd;"><b> master</b></span></p>
+<p data-ke-size="size16">자손 브랜치 (분기해서 생성되는 브랜치): X</p>
+<p data-ke-size="size16">PR받는 브랜치 (pull request 받는 브랜치): <span style="background-color: #dddddd;"><b><span style="color: #ee2323;">pre-production</span></b></span></p>
+<p data-ke-size="size16">PR나가는 브랜치 (pull request 보내는 브랜치): X</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>2. pre-production 브랜치</b></p>
+<p data-ke-size="size16">배포 전에 제품을 테스트 (QA, 품질검사) 하는 브랜치입니다.</p>
+<p data-ke-size="size16">테스트가 정상적으로 완료되면, <span style="color: #ee2323; background-color: #dddddd;"><b>production</b></span> 과 <b><span style="color: #ee2323; background-color: #dddddd;">master</span></b> 에 각각 pr 을 날립니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">자손 브랜치: X</p>
+<p data-ke-size="size16">PR받는 브랜치: <span style="background-color: #dddddd; color: #ee2323;"><b>master</b></span></p>
+<p data-ke-size="size16">PR나가는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>production</b></span>, <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>3. master 브랜치 (main 브랜치)</b></p>
+<p data-ke-size="size16">개발 단계의 코드가 있는 (개발의 중심) 브랜치입니다.</p>
+<p data-ke-size="size16">개발 자체는 feature 브랜치에서 진행하고, 기능 하나 구현이 완료되면 master 브랜치가 pr 을 받습니다. 이러한 과정을 반복하면서 특정 단계까지 개발이 완료되면, pre-production 으로 pr 을 날립니다.</p>
+<p data-ke-size="size16">부모 브랜치: X</p>
+<p data-ke-size="size16">자손 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>feature</b></span></p>
+<p data-ke-size="size16">PR받는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>feature</b></span>, <b><span style="color: #ee2323; background-color: #dddddd;">pre-production</span></b></p>
+<p data-ke-size="size16">PR나가는 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>pre-production</b></span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>4. feature 브랜치</b></p>
+<p data-ke-size="size16">특정한 기능 (단위 기능) 을 구현하는 브랜치입니다.</p>
+<p data-ke-size="size16">브랜치명은 github flow 처럼 자세하게 작성합니다.</p>
+<p data-ke-size="size16">기능 구현이 완료되면, master 브랜치로 pr 을 날립니다. merge 되면 브랜치는 삭제됩니다.</p>
+<p data-ke-size="size16">부모 브랜치: <span style="color: #ee2323; background-color: #dddddd;"><b>master</b></span></p>
+<p data-ke-size="size16">자손 브랜치: X</p>
+<p data-ke-size="size16">PR받는 브랜치: X</p>
+<p data-ke-size="size16">PR나가는 브랜치: <b><span style="color: #ee2323; background-color: #dddddd;">master</span></b></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>Gitlab Flow 는 다음과 같은 경우에 유용합니다.</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>중간 규모의 팀</li>
+<li>퀄리티 보장이 중요한 프로덕트</li>
+<li>빠른 배포와 관리가 필요한 경우</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size18"><b>간단하게 다시 정리해보면&nbsp;</b></p>
+<p data-ke-size="size16">git flow와 GitHub flow의 중간쯤에 위치하고 있으며</p>
+<p data-ke-size="size16">4종류의 브랜치를 사용합니다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">production = main(master) 배포될코드가 있는</p>
+<p data-ke-size="size16">pre-production = test진행</p>
+<p data-ke-size="size16">master = develop 브랜치</p>
+<p data-ke-size="size16">feature = 위(git flow, github flow)랑 동일</p>
+<p data-ke-size="size16"><span>(</span>퀄리티는<span> </span>보장<span>&nbsp;</span>되면서<span> </span>빠른<span> </span>배포와<span> </span>관리가<span> </span>필요한<span> </span>경우 사용<span>)</span></p></div>
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adfit">
+    <div class="revenue_unit_info">728x90</div>
+    <ins class="kakao_ad_area" style="display: none;" data-ad-unit="DAN-Y5fDLKmfiejjAFYH" data-ad-width="728px" data-ad-height="90px" id="kakao_ad_INcCdO"></ins>
+    <script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ba.min.js" async="async"></script>
+  </div>
+</div>
+<div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adsense responsive">
+    <div class="revenue_unit_info">반응형</div>
+    <script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/f(2).txt" async="async"></script>
+    <ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-6436638607589561" data-ad-format="auto" data-adsbygoogle-status="done"><div id="aswift_3_host" style="border: none; height: 280px; width: 837px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+        <!-- System - END -->
+
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//projectlog.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 59
+}</script>
+<div class="wrap_btn" id="reaction-59" data-tistory-react-app="Reaction"><button class="btn_post uoc-icon" data-tiara-action-name="공감_클릭"><div class="uoc-icon"><span class="ico_postbtn ico_like">좋아요</span><span class="txt_like uoc-count">2</span></div></button></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F0or1g%2FbtsnEopYCjJ%2FAAAAAAAAAAAAAAAAAAAAANJQagXQKIK9VBr9JAji-r017OF72Z-l251nGfD-oLKP%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8gr6e1qnrj1QNGHfXGsW1tahnKM%253D" data-title="깃 관리전략(git flow, github flow, gitlab flow)" data-description="git flow, github flow, gitlab flow 의 개념 현업에서는 다양한 방식으로 브랜치를 관리한다고 하는데, 그 중에서 가장 대표적인 방식인 git flow, github flow, gitlab flow 라는 3가지 관리 전략에 대해서 알아보겠습니다. (이 내용은 김준태 강사님 강의를 바탕으로 제가 정리한 내용을 포스팅한 게시물입니다.) 1. Git Flow git flow 는 총 5 종류의 브랜치를 활용합니다. 주의할 점은 master, develop 은 각 브랜치가 영구적으로 존재하지만, hotfix, release, feature 브랜치의 경우 필요할 때마다 브랜치를 만들고, merge(머지)가 되면 삭제한다는 점입니다. 전체적인 merge 순서는 다음과 같습니다. (merge 할.." data-profile-image="https://tistory1.daumcdn.net/tistory/4431337/attach/0e058865f396430b9d11e6d019104292" data-profile-name="jinuk_" data-pc-url="https://projectlog.tistory.com/59" data-relative-pc-url="/59" data-blog-title="Project.log"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"><div class="bundle_post"><button class="btn_mark" data-service="url" data-tiara-action-name="공유_클릭" data-tiara-layer="copy_url" data-tiara-copy="URL복사"><span class="ico_sns ico_url"></span><span class="txt_sns">URL 복사</span></button><button class="btn_mark" data-service="kakaotalk" data-tiara-action-name="공유_클릭" data-tiara-layer="kakao" data-tiara-copy="카카오톡 공유"><span class="ico_sns ico_kt"></span><span class="txt_sns">카카오톡 공유</span></button><button class="btn_mark" data-service="facebook" data-tiara-action-name="공유_클릭" data-tiara-layer="facebook" data-tiara-copy="페이스북 공유"><span class="ico_sns ico_fb"></span><span class="txt_sns">페이스북 공유</span></button><button class="btn_mark" data-service="twitter" data-tiara-action-name="공유_클릭" data-tiara-layer="X" data-tiara-copy="엑스 공유"><span class="ico_sns ico_x"></span><span class="txt_sns">엑스 공유</span></button><span class="ico_postbtn ico_arrbt"></span></div></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="59" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4431337" data-url="https://projectlog.tistory.com/59" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭" data-tiara-copy="구독하기"><em class="txt_state">구독하기</em><strong class="txt_tool_id">Project.log</strong><span class="img_common_tistory ico_check_type1"></span></button><div class="postbtn_ccl" data-ccl-type="1" data-ccl-derive="2">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span> <span class="ico_postbtn ico_ccl2">비영리</span> <span class="ico_postbtn ico_ccl3">변경금지</span> 
+        </span>
+        <span class="screen_out">(새창열림)</span>
+    </a>
+</div>
+<!--
+<rdf:RDF xmlns="https://web.resource.org/cc/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" />
+    </Work>
+    <License rdf:about="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko">
+        <permits rdf:resource="https://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="https://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="https://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="https://web.resource.org/cc/Attribution"/>
+        <prohibits rdf:resource="https://web.resource.org/cc/CommercialUse"/>
+
+    </License>
+</rdf:RDF>
+-->  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="https://projectlog.tistory.com/category/GIT">GIT</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tbody><tr>
+      <th><a href="https://projectlog.tistory.com/57">깃 커밋 컨벤션 정하기</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2023.07.13</td>
+    </tr>
+    <tr>
+      <th><a href="https://projectlog.tistory.com/55">깃 .gitignore 쉬운 세팅법</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2023.07.13</td>
+    </tr>
+    <tr>
+      <th><a href="https://projectlog.tistory.com/54">깃 버전 되돌리기</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2023.07.11</td>
+    </tr>
+    <tr>
+      <th><a href="https://projectlog.tistory.com/20">깃 정리</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2023.04.12</td>
+    </tr>
+    <tr>
+      <th><a href="https://projectlog.tistory.com/13">깃 변경내용확인하기</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2022.08.27</td>
+    </tr>
+  </tbody></table>
+</div>
+
+<!-- PostListinCategory - END -->
+
+    </div>
+    <div class="area_etc">
+      
+        <dl class="list_tag">
+          <dt>Tag</dt>
+          <dd><a href="https://projectlog.tistory.com/tag/Git" rel="tag">Git</a>, <a href="https://projectlog.tistory.com/tag/gitflow" rel="tag">gitflow</a>, <a href="https://projectlog.tistory.com/tag/github" rel="tag">github</a>, <a href="https://projectlog.tistory.com/tag/GithubFlow" rel="tag">GithubFlow</a>, <a href="https://projectlog.tistory.com/tag/GitLab" rel="tag">GitLab</a>, <a href="https://projectlog.tistory.com/tag/GitlabFlow" rel="tag">GitlabFlow</a>, <a href="https://projectlog.tistory.com/tag/%EA%B9%83flow" rel="tag">깃flow</a>, <a href="https://projectlog.tistory.com/tag/%EA%B9%83%EA%B4%80%EB%A6%AC" rel="tag">깃관리</a>, <a href="https://projectlog.tistory.com/tag/%EA%B9%83%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5" rel="tag">깃관리전략</a>, <a href="https://projectlog.tistory.com/tag/%EA%B9%83%ED%94%8C%EB%A1%9C%EC%9A%B0" rel="tag">깃플로우</a></dd>
+        </dl>
+      
+    </div>
+
+    
+      <div class="area_related">
+        <strong class="tit_related">'GIT' Related Articles</strong>
+        <ul class="list_related">
+          
+            <li class="thumb_type">
+              <a href="https://projectlog.tistory.com/57?category=577141" class="link_related">
+                
+                  <span class="thumb_related">
+                    <img loading="lazy" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/saved_resource" class="img_related" alt="">
+                  </span>
+                
+                <span class="txt_related">깃 커밋 컨벤션 정하기</span>
+                <span class="date_related">2023.07.13</span>
+                <span class="frame_related"></span>
+              </a>
+            </li>
+          
+            <li class="thumb_type">
+              <a href="https://projectlog.tistory.com/55?category=577141" class="link_related">
+                
+                  <span class="thumb_related">
+                    <img loading="lazy" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/saved_resource(1)" class="img_related" alt="">
+                  </span>
+                
+                <span class="txt_related">깃 .gitignore 쉬운 세팅법</span>
+                <span class="date_related">2023.07.13</span>
+                <span class="frame_related"></span>
+              </a>
+            </li>
+          
+            <li class="thumb_type">
+              <a href="https://projectlog.tistory.com/54?category=577141" class="link_related">
+                
+                  <span class="thumb_related">
+                    <img loading="lazy" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/saved_resource(2)" class="img_related" alt="">
+                  </span>
+                
+                <span class="txt_related">깃 버전 되돌리기</span>
+                <span class="date_related">2023.07.11</span>
+                <span class="frame_related"></span>
+              </a>
+            </li>
+          
+            <li class="thumb_type">
+              <a href="https://projectlog.tistory.com/20?category=577141" class="link_related">
+                
+                  <span class="thumb_related">
+                    <img loading="lazy" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/saved_resource(3)" class="img_related" alt="">
+                  </span>
+                
+                <span class="txt_related">깃 정리</span>
+                <span class="date_related">2023.04.12</span>
+                <span class="frame_related"></span>
+              </a>
+            </li>
+          
+        </ul>
+        <a href="https://projectlog.tistory.com/category/GIT" class="link_more">more</a>
+      </div>
+    
+
+    <div class="area_reply">
+      <div data-tistory-react-app="Namecard"><div class="tt_box_namecard"><div class="tt_cont"><a class="tt_tit_cont" href="https://projectlog.tistory.com/">Project.log</a><a class="tt_desc" href="https://projectlog.tistory.com/">공부한 내용을 공유합니다</a><button class="tt_btn_subscribe" data-tiara-action-name="프로필영역 구독 버튼_클릭" data-tiara-copy="구독하기" type="button"><span class="tt_txt_g">구독하기</span><span class="tt_img_area_reply tt_ico_cross"></span></button></div><a class="tt_wrap_thumb" href="https://projectlog.tistory.com/"><span class="tt_thumb_g" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/S56x56/?scode=mtistory2&amp;fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4431337%2Fattach%2F0e058865f396430b9d11e6d019104292&quot;);"></span></a></div></div><div id="entry59Comment">
+        <div data-tistory-react-app="Comment"><div class="tt-comment-cont"><div class="tt-box-total"><span class="tt_txt_g">댓글</span><span class="tt_num_g">0</span></div><div class="tt-area-reply"></div><form style="margin: 0px;"><div class="tt-area-write"><div class="tt-box-thumb"><span class="tt-thumbnail" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/C44x44@2x.fwebp.q85/?fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_06.png&quot;);"></span></div><div class="tt_wrap_write"><div class="tt-box-account"><input maxlength="32" placeholder="이름" title="이름" type="text" value=""><input maxlength="12" placeholder="비밀번호" title="비밀번호" type="password" value=""></div><div class="tt-box-textarea"><div class="tt-inner-g"><div class="tt-cmt" contenteditable="true" data-placeholder="내용을 입력하세요."></div></div></div><div class="tt-box-write"><label class="tt-xe-label"><input id="secret" type="checkbox"><span class="tt_img_area_reply tt-xe-input-helper"></span><span class="tt-xe-label-text">비밀글</span></label><button class="tt-btn_register" disabled="" type="submit" data-tiara-action-name="댓글등록_클릭" data-tiara-custom="role=guest&amp;type=comment&amp;secret=false">등록</button></div></div></div></form></div></div>
+
+      </div>
+<script type="text/javascript">loadedComments[59]=true;
+findFragmentAndHighlight(59);</script>
+
+    </div>
+
+
+  
+
+        
+    
+
+            
+
+            
+
+            
+
+            
+
+            
+
+            
+          </div>
+        </div>
+      </div>
+      <hr class="hide">
+      <div id="dkFoot" role="contentinfo" class="area_foot">
+        <small class="info_copyright">
+          Blog is powered by
+          <a href="http://www.kakaocorp.com/" class="emph_t" target="_blank">kakao</a> / Designed by
+          <a href="http://www.tistory.com/" class="emph_t" target="_blank">Tistory</a>
+        </small>
+      </div>
+    </div>
+
+
+  
+  <script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/script(1).js"></script>
+<div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+<div class="btn_tool btn_tool_type1" id="menubar_wrapper" data-tistory-react-app="Menubar"><button class="btn_menu_toolbar btn_menu_type2"><span class="img_common_tistory ico_tistory_sign">관리메뉴열기</span></button><div class="header_layer layer_tool" style="display: none;"><div class="inner_header_layer"><h2 class="screen_out">개인정보</h2><ul class="list_toolbar"><li><a class="link_list" href="https://www.tistory.com/">티스토리 홈</a></li><li><a class="link_list" href="https://www.tistory.com/forum">포럼</a></li><li><a class="link_list" href="https://projectlog.tistory.com/59#">로그인</a></li></ul></div></div></div><div class="btn_tool"><button class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4431337" data-url="https://projectlog.tistory.com" data-device="web_pc" data-tiara-copy="구독하기"><strong class="txt_tool_id">Project.log</strong><em class="txt_state">구독하기</em><span class="img_common_tistory ico_check_type1"></span></button></div></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+        <!-- SyntaxHighlight - START -->
+        <link href="./깃 관리전략(git flow, github flow, gitlab flow)_files/atom-one-dark-reasonable.min.css" rel="stylesheet"><script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/highlight.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/delphi.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/php.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/python.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/r.min.js" defer=""></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ruby.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/scala.min.js" defer=""></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/shell.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/sql.min.js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/swift.min.js" defer=""></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/typescript.min.js" defer=""></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/vbnet.min.js" defer=""></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/roosevelt_dk_bt.js" async="async"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"4431337-59","customProps":{"userId":"0","blogId":"4431337","entryId":"59","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"59","entryTitle":"깃 관리전략(git flow, github flow, gitlab flow)","entryType":"POST","categoryName":"GIT","categoryId":"577141","serviceCategoryName":null,"serviceCategoryId":null,"author":"4719792","authorNickname":"jinuk_","blogNmae":"Project.log","image":"kage@0or1g/btsnEopYCjJ/44y3kA3djJpcHGefd4w3xk","plink":"/59","tags":["Git","gitflow","github","GithubFlow","GitLab","GitlabFlow","깃flow","깃관리","깃관리전략","깃플로우"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/index(1).js"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/polyfills-legacy(1).js" nomodule="true" defer="true"></script>
+<script src="./깃 관리전략(git flow, github flow, gitlab flow)_files/index-legacy(1).js" nomodule="true" defer="true"></script>
+
+                
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/ads(2).html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><div id="__phocus__" class="__phocus__" tabindex="-1"></div><div id="shortcutLayer" class="doc_help" style="display: none;"><button class="btn_doc_close">닫기</button>
+  <h2 class="title">단축키</h2>
+  <div class="content mac_platform">
+    <div class="container">
+      <h3 class="item_title">내 블로그</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>내 블로그 - 관리자 홈 전환</th>
+      <td>
+        <div class="pc">
+          <kbd>Q</kbd>
+        </div>
+        <div class="mac">
+          <kbd>Q</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>새 글 쓰기</th>
+      <td>
+        <div class="pc">
+          <kbd>W</kbd>
+        </div>
+        <div class="mac">
+          <kbd>W</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+      <h3 class="item_title">블로그 게시글</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>글 수정 (권한 있는 경우)</th>
+      <td>
+        <div class="pc">
+          <kbd>E</kbd>
+        </div>
+        <div class="mac">
+          <kbd>E</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>댓글 영역으로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>C</kbd>
+        </div>
+        <div class="mac">
+          <kbd>C</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <h3 class="item_title">모든 영역</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>이 페이지의 URL 복사</th>
+      <td>
+        <div class="pc">
+          <kbd>S</kbd>
+        </div>
+        <div class="mac">
+          <kbd>S</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>맨 위로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>T</kbd>
+        </div>
+        <div class="mac">
+          <kbd>T</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>티스토리 홈 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>H</kbd>
+        </div>
+        <div class="mac">
+          <kbd>H</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>단축키 안내</th>
+      <td>
+        <div class="pc">
+          <kbd>Shift</kbd> + <kbd>/</kbd>
+        </div>
+        <div class="mac">
+          <kbd>⇧</kbd> + <kbd>/</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="info">* 단축키는 한글/영문 대소문자로 이용 가능하며, 티스토리 기본 도메인에서만 동작합니다.</p>
+  </div><iframe src="./깃 관리전략(git flow, github flow, gitlab flow)_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./깃 관리전략(git flow, github flow, gitlab flow)_files/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>

@@ -1,0 +1,434 @@
+{
+  "main": {
+    "id": "545241e6968297e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff29ae833bb49b9a",
+        "type": "split",
+        "children": [
+          {
+            "id": "338edea946b4b505",
+            "type": "split",
+            "dimension": 37.677725118483416,
+            "children": [
+              {
+                "id": "e8e525020f8af1d2",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "cea558aae730c753",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "20250418.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "20250418"
+                    }
+                  },
+                  {
+                    "id": "29518bc52488ca57",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "차세대 코스 웹 릴리즈 노트 (20250721).md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "차세대 코스 웹 릴리즈 노트 (20250721)"
+                    }
+                  },
+                  {
+                    "id": "d8d22678757e0719",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "총괄대표님 일일보고 템플릿.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "총괄대표님 일일보고 템플릿"
+                    }
+                  }
+                ],
+                "currentTab": 2
+              },
+              {
+                "id": "aa2c59b1e89e9df0",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "b85e21087236bbd2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "우리은행 연락 담당.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "우리은행 연락 담당"
+                    }
+                  },
+                  {
+                    "id": "7dfa3cc60577d2f7",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "개인 계정 관련.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "개인 계정 관련"
+                    }
+                  },
+                  {
+                    "id": "5b583302e11d99d0",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "회사 계정 관련.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "회사 계정 관련"
+                    }
+                  },
+                  {
+                    "id": "d799ad5a5148af8d",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "뱅크클리어 홈페이지 및 코스 홈페이지 배포 관련 정보.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "뱅크클리어 홈페이지 및 코스 홈페이지 배포 관련 정보"
+                    }
+                  },
+                  {
+                    "id": "bb4c42d9abd21f1b",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "추후 처리 예정 목록_20250623.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "추후 처리 예정 목록_20250623"
+                    }
+                  }
+                ],
+                "currentTab": 4
+              }
+            ],
+            "direction": "vertical"
+          },
+          {
+            "id": "669268e78c69e45a",
+            "type": "split",
+            "dimension": 62.32227488151659,
+            "children": [
+              {
+                "id": "4e6a04316acdebf1",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "ba1632e9f16e3140",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Todo List (우선 순위 설정 필요).md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "Todo List (우선 순위 설정 필요)"
+                    }
+                  },
+                  {
+                    "id": "ebff6cbab36e65f8",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "20250731.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "20250731"
+                    }
+                  }
+                ],
+                "currentTab": 1
+              },
+              {
+                "id": "c9a0cf61804573db",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "7e7d98265b9a361a",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "STAT_CD.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "STAT_CD"
+                    }
+                  },
+                  {
+                    "id": "8e82b930e63e3822",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "문서화 예정 목록.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "문서화 예정 목록"
+                    }
+                  },
+                  {
+                    "id": "93d99bdc53e13f34",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Tabby.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "Tabby"
+                    }
+                  },
+                  {
+                    "id": "5b528eecaea968d2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "IDC 견적 정리.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "IDC 견적 정리"
+                    }
+                  }
+                ],
+                "currentTab": 2
+              }
+            ],
+            "direction": "vertical"
+          }
+        ],
+        "direction": "horizontal"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8d840c67474e5548",
+    "type": "split",
+    "children": [
+      {
+        "id": "8690fc5c80f09cc8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3c0733e655af7d8a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "89247f27c325a9c4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "c5e2e636ca9a2af5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "8fba69dae2753eae",
+    "type": "split",
+    "children": [
+      {
+        "id": "7768c35a498a6942",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fee3150caa6ff4e7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "20250124.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "20250124의 백링크"
+            }
+          },
+          {
+            "id": "6cb77324c0e89cae",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
+          },
+          {
+            "id": "80a60a5df1aa9180",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "daafad8112c548df",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false
+    }
+  },
+  "active": "93d99bdc53e13f34",
+  "lastOpenFiles": [
+    "IDC 견적 정리.md",
+    "무제 66.md",
+    "Tabby.md",
+    "20250731.md",
+    "총괄대표님 일일보고 템플릿.md",
+    "무제 63.md",
+    "무제 64.md",
+    "Flutter + FVM (IntelliJ IDEA ver.).md",
+    "무제 65.md",
+    "추후 처리 예정 목록_20250623.md",
+    "회사 계정 관련.md",
+    "무제 62.md",
+    "무제 61.md",
+    "무제 60.md",
+    "무제 56.md",
+    "무제 59.md",
+    "무제 58.md",
+    "개인 계정 관련.md",
+    "무제 57.md",
+    "뱅크클리어 홈페이지 및 코스 홈페이지 배포 관련 정보.md",
+    "FCM 콘솔 계정 요청.md",
+    "테스트 환경 계정.md",
+    "운영 관련 계정.md",
+    "계정 정보.md",
+    "무제 55.md",
+    "이슈사항 체크.md",
+    "image (7).png",
+    "image (7).png.crdownload",
+    "image (6).png",
+    "image (5).png",
+    "image (4).png",
+    "image (3).png",
+    "image (3).png.crdownload",
+    "image (2).png",
+    "image (2).png.crdownload",
+    "image (1).png",
+    "image.png",
+    "screencapture-notion-so-bankle-2115a9ad1c9a80d1be30c66d3d01cf4d-2025-06-16-16_49_09.png",
+    "image.jpeg",
+    ".md"
+  ]
+}

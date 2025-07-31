@@ -1,0 +1,3 @@
+> gitmoji + prefix + color
+
+🐛 BUG

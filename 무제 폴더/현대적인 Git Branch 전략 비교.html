@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://iwantbaobab.tistory.com/557 -->
+<html lang="ko" data-phocus-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":4589519,"name":"iwantbaobab","title":"새싹부터 바오밥","isDormancy":false,"nickName":"iwantbaobab","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":true,"COMMENT_LOGIN_CONFIRM_MESSAGE":"이 블로그는 로그인한 사용자에게만 댓글 작성을 허용했습니다. 지금 로그인하시겠습니까?","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://iwantbaobab.tistory.com/557","DEFAULT_URL":"https://iwantbaobab.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":557,"isAuthor":false,"categoryId":1222851,"categoryLabel":"Tech/[SCM] Git & Github"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://iwantbaobab.tistory.com",
+    tistoryUrl: "https://iwantbaobab.tistory.com",
+    manageUrl: "https://iwantbaobab.tistory.com/manage",
+    token: "IZtzei7g39G2iE5Q1g6n3MZm4ZX82D7KBXgmFsPHax4lkPFWeSsCSykerI04B85L"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="./현대적인 Git Branch 전략 비교_files/style.css" rel="stylesheet" type="text/css">
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+        <!-- MetaTag - START -->
+        <meta name="google-site-verification" content="Wz6QLY6HakRaSLikXNxSOodhHN--Znblb9p8xUO9BEo">
+<meta name="naver-site-verification" content="8a020126dd770c8a3eecdfd3b96617df29232052">
+        <!-- MetaTag - END -->
+
+<!-- PreventCopyContents - START -->
+<meta content="no" http-equiv="imagetoolbar">
+
+<!-- PreventCopyContents - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="./현대적인 Git Branch 전략 비교_files/style(1).css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="./현대적인 Git Branch 전략 비교_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/tiara.min.js"></script><meta name="referrer" content="always">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="description" content="졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다. GIT 브랜치 전략의 필요성소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에..">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://iwantbaobab.tistory.com/557">
+<meta property="og.article.author" content="iwantbaobab">
+<meta property="og:site_name" content="새싹부터 바오밥">
+<meta property="og:title" content="현대적인 Git Branch 전략 비교">
+<meta name="by" content="iwantbaobab">
+<meta property="og:description" content="졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다. GIT 브랜치 전략의 필요성소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에..">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciNVsj%2FbtsMF0kBREh%2FAAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DL1hb%252FdRtAiXlHiTpl%252FAq%252FKd4wzI%253D">
+<meta property="article:section" content="&#39;IT 인터넷&#39;">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TISTORY">
+<meta name="twitter:title" content="현대적인 Git Branch 전략 비교">
+<meta name="twitter:description" content="졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다. GIT 브랜치 전략의 필요성소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에..">
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciNVsj%2FbtsMF0kBREh%2FAAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DL1hb%252FdRtAiXlHiTpl%252FAq%252FKd4wzI%253D">
+<meta content="https://iwantbaobab.tistory.com/557" property="dg:plink">
+<meta name="plink">
+<meta name="title" content="현대적인 Git Branch 전략 비교">
+<meta name="article:media_name" content="새싹부터 바오밥">
+<meta property="article:mobile_url" content="https://iwantbaobab.tistory.com/m/557">
+<meta property="article:pc_url" content="https://iwantbaobab.tistory.com/557">
+<meta property="article:mobile_view_url" content="https://iwantbaobab.tistory.com/m/557">
+<meta property="article:pc_view_url" content="https://iwantbaobab.tistory.com/557">
+<meta property="article:talk_channel_view_url" content="https://iwantbaobab.tistory.com/m/557">
+<meta property="article:pc_service_home" content="https://www.tistory.com">
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m">
+<meta property="article:txid" content="4589519_557">
+<meta property="article:published_time" content="2025-03-09T22:43:00+09:00">
+<meta property="og:regDate" content="20250309104300">
+<meta property="article:modified_time" content="2025-03-09T22:43:00+09:00">
+<script type="module" src="./현대적인 Git Branch 전략 비교_files/index.js" defer=""></script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/font.css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/content.css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/index.css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/uselessPMargin.css">
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/base.js"></script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/kakao.min.js"></script>
+
+                
+  
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <title>현대적인 Git Branch 전략 비교</title>
+  <link rel="stylesheet" href="./현대적인 Git Branch 전략 비교_files/style(2).css">
+  <script src="./현대적인 Git Branch 전략 비교_files/jquery-1.12.4.min.js"></script>
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/revenue.css">
+<link rel="canonical" href="https://iwantbaobab.tistory.com/557">
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://iwantbaobab.tistory.com/557","name":null},"url":"https://iwantbaobab.tistory.com/557","headline":"현대적인 Git Branch 전략 비교","description":"졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다.&nbsp;GIT 브랜치 전략의 필요성소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에..","author":{"@type":"Person","name":"iwantbaobab","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciNVsj%2FbtsMF0kBREh%2FAAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DL1hb%252FdRtAiXlHiTpl%252FAq%252FKd4wzI%253D","width":"800px","height":"800px"},"datePublished":"2025-03-09T22:43:00+09:00","dateModified":"2025-03-09T22:43:00+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/dialog.css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/font(1).css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/postBtn.css">
+<link rel="stylesheet" type="text/css" href="./현대적인 Git Branch 전략 비교_files/tistory.css">
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/common.js"></script>
+
+                
+                <style type="text/css">#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style></head>
+
+                                                <body id="tt-body-page" class="layout-wide color-bright post-type-text paging-view-more">
+                
+                
+                
+  
+    <div id="acc-nav">
+      <a href="https://iwantbaobab.tistory.com/557#content">본문 바로가기</a>
+    </div>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner">
+          <h1>
+            <a href="https://iwantbaobab.tistory.com/">
+              
+              
+                새싹부터 바오밥
+              
+            </a>
+          </h1>
+          <button type="button" class="mobile-menu"><span>메뉴</span></button>
+          <nav id="gnb">
+          <ul>
+  <li class="t_menu_link_1 first"><a href="https://github.com/baobabnamu" target="_black">Github</a></li>
+  <li class="t_menu_link_2 last"><a href="https://www.linkedin.com/in/%EC%9E%AC%ED%99%98-%EA%B9%80-0471b2209/" target="_black">LinkedIn</a></li>
+</ul>
+          <ul class="tt_category"><li class=""><a href="https://iwantbaobab.tistory.com/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(653)</span> </a>
+  <ul class="category_list"><li class=""><a href="https://iwantbaobab.tistory.com/category/Tech" class="link_item"> Tech <span class="c_cnt">(429)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BCloud%5D%20AWS" class="link_sub_item"> [Cloud] AWS <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BIaC%5D%20Vagrant" class="link_sub_item"> [IaC] Vagrant <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BIaC%5D%20Terraform" class="link_sub_item"> [IaC] Terraform <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BIaC%5D%20CloudFormation" class="link_sub_item"> [IaC] CloudFormation <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BContainer%5D%20Docker" class="link_sub_item"> [Container] Docker <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BContainer%5D%20Kubernetes" class="link_sub_item"> [Container] Kubernetes <span class="c_cnt">(6)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BLang%5D%20Python" class="link_sub_item"> [Lang] Python <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BLang%5D%20JS%20%26%20TS" class="link_sub_item"> [Lang] JS &amp; TS <span class="c_cnt">(17)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BLang%5D%20Java" class="link_sub_item"> [Lang] Java <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BSCM%5D%20Git%20%26%20Github" class="link_sub_item"> [SCM] Git &amp; Github <span class="c_cnt">(6)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BPS%5D%20Reviews" class="link_sub_item"> [PS] Reviews <span class="c_cnt">(310)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BIDE%5D%20IntelliJ" class="link_sub_item"> [IDE] IntelliJ <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BSW%5D%20Microsoft%20Office%20Series" class="link_sub_item"> [SW] Microsoft Office Serie.. <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BSaaS%5D%20Microsoft%20365" class="link_sub_item"> [SaaS] Microsoft 365 <span class="c_cnt">(17)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BCI%20%26%20CD%5D%20Heroku" class="link_sub_item"> [CI &amp; CD] Heroku <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BCI%20%26%20CD%5D%20Jenkins" class="link_sub_item"> [CI &amp; CD] Jenkins <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BBackend%5D%20Spring" class="link_sub_item"> [Backend] Spring <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BBackend%5D%20Django" class="link_sub_item"> [Backend] Django <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BTrouble%20Shooting%5D%20Logs" class="link_sub_item"> [Trouble Shooting] Logs <span class="c_cnt">(27)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/%5BReview%5D%20Tech%20News" class="link_sub_item"> [Review] Tech News <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Tech/Etc" class="link_sub_item"> Etc <span class="c_cnt">(2)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Theory" class="link_item"> Theory <span class="c_cnt">(39)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://iwantbaobab.tistory.com/category/Theory/Algorithm%20%26%20Data%20Structure" class="link_sub_item"> Algorithm &amp; Data Structure <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Theory/Infrastructure%20%26%20Network" class="link_sub_item"> Infrastructure &amp; Network <span class="c_cnt">(22)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Theory/Database" class="link_sub_item"> Database <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Theory/OS" class="link_sub_item"> OS <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Theory/Attitude%20as%20Professinal" class="link_sub_item"> Attitude as Professinal <span class="c_cnt">(2)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate" class="link_item"> Certificate <span class="c_cnt">(160)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/Cos%20Pro%201%EA%B8%89%20%28Python%29" class="link_sub_item"> Cos Pro 1급 (Python) <span class="c_cnt">(50)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC" class="link_sub_item"> 정보처리기사 <span class="c_cnt">(19)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/SQL%EA%B0%9C%EB%B0%9C%EC%9E%90%20%28SQLD%29" class="link_sub_item"> SQL개발자 (SQLD) <span class="c_cnt">(1)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/AWS%20SAA-C03" class="link_sub_item"> AWS SAA-C03 <span class="c_cnt">(23)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/AWS%20SOA-C02" class="link_sub_item"> AWS SOA-C02 <span class="c_cnt">(54)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/AWS%20DVA-C02" class="link_sub_item"> AWS DVA-C02 <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Certificate/CKA" class="link_sub_item"> CKA <span class="c_cnt">(10)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Personal" class="link_item"> Personal <span class="c_cnt">(25)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://iwantbaobab.tistory.com/category/Personal/Notes" class="link_sub_item"> Notes <span class="c_cnt">(16)</span> </a></li>
+<li class=""><a href="https://iwantbaobab.tistory.com/category/Personal/Book%20Reviews" class="link_sub_item"> Book Reviews <span class="c_cnt">(9)</span> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </nav>
+        </div>
+      </header>
+      <hr>
+      <section class="container">
+        
+        <article id="content">
+
+          
+
+          
+
+          
+
+          
+
+          <div class="inner">
+            
+
+                
+        
+  
+  
+    <div class="hgroup">
+      <div class="category">Tech/[SCM] Git &amp; Github</div>
+      <h1>현대적인 Git Branch 전략 비교 </h1>
+      <div class="post-meta">
+        <span class="author">iwantbaobab</span>
+        <span class="date">2025. 3. 9. 22:43</span>
+        
+      </div>
+    </div>
+    <div class="entry-content" id="article-view">
+                  <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><p data-ke-size="size16">졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 id="block-1b118fdf38ed805994e6c313fa331d1c" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size26">GIT 브랜치 전략의 필요성</h2>
+<p id="block-1b118fdf38ed80ba93cbd760e1ff43a7" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.</p>
+<p id="block-1b118fdf38ed808d9cc0f714fc727000" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.</p>
+<p id="block-1b118fdf38ed80199506f45a2a32a506" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.</p>
+<p id="block-1b118fdf38ed80e29174d2f5418e6056" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.</p>
+<p id="block-1b118fdf38ed80e3ab85d4fa07304181" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에 대해 정리해 보겠다.</p>
+<p style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h2 id="block-1b118fdf38ed80b2a5cff6a493f73deb" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size26">Git-Flow 전략</h2>
+<div id="block-1b118fdf38ed80a391c8e35aa42f9e78" style="background-color: #ffffff; color: #37352f; text-align: start;"><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="2196" data-origin-height="1364"><span data-url="https://blog.kakaocdn.net/dna/ciNVsj/btsMF0kBREh/AAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=L1hb%2FdRtAiXlHiTpl%2FAq%2FKd4wzI%3D" data-phocus="https://blog.kakaocdn.net/dna/ciNVsj/btsMF0kBREh/AAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=L1hb%2FdRtAiXlHiTpl%2FAq%2FKd4wzI%3D"><img src="./현대적인 Git Branch 전략 비교_files/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciNVsj%2FbtsMF0kBREh%2FAAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DL1hb%252FdRtAiXlHiTpl%252FAq%252FKd4wzI%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="2196" height="1364" data-origin-width="2196" data-origin-height="1364" data-phocus-index="0"></span></figure>
+</div>
+<p id="block-1b118fdf38ed80acafb6d3a4c80fa3e8" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">Git-Flow는 긴 개발 주기를 가진 프로젝트에 적합한 브랜치 전략으로, 여러 개의 브랜치를 활용하여 기능 개발, 테스트, 배포를 체계적으로 관리하는 방식이다.</p>
+<p id="block-1b118fdf38ed8015b296f267e8bbe7f0" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">특히, Git-Flow는 배포 버전 관리 및 핫픽스 처리와 같은 복잡한 개발 프로세스를 지원하는 것이 특징이다.</p>
+<p style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed8016b911fb48a3956b6d" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">Git-Flow 브랜치 구조</h3>
+<p id="block-1b118fdf38ed80458e4fece583525066" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">Git-Flow는 메인 브랜치(2개)와 보조 브랜치(3개)로 구성된다.</p>
+<h3 id="block-1b118fdf38ed80718abcecbaed688242" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">메인 브랜치</h3>
+<ol style="list-style-type: decimal; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="decimal">
+<li id="block-1b118fdf38ed801c8699cb3736f5abee"><b>master (main)</b></li>
+<li id="block-1b118fdf38ed80138845d96210f4b9a3"><b>develop</b></li>
+</ol>
+<h3 id="block-1b118fdf38ed8078b3fef2787b77cae3" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">보조 브랜치</h3>
+<ol style="list-style-type: decimal; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="decimal">
+<li id="block-1b118fdf38ed80349e19ec5dd5e7c7e8"><b>feature</b></li>
+<li id="block-1b118fdf38ed80629d6ed3323fe99f85"><b>release</b></li>
+<li id="block-1b118fdf38ed80269d72ed750c215b6b"><b>hotfix</b></li>
+</ol>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed8065a397f5a56ee7dddf" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">Git-Flow 작업 흐름</h3>
+<h3 id="block-1b118fdf38ed801183eeefde0bddca85" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">1. 신규 기능 개발</h3>
+<div id="block-1b118fdf38ed801babb4cdab1011185f" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="maxima" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git checkout -b feature/new-feature develop
+# 기능 개발 진행
+# ...
+git checkout develop
+git merge feature/new-feature
+git branch -d feature/new-feature</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed809b995df99fbccc3e5f">개발자는 develop에서 새로운 feature 브랜치를 생성하여 개발을 진행한다.</li>
+<li id="block-1b118fdf38ed809689cdccc5ad3c096f">개발이 완료되면 develop으로 병합하고, feature 브랜치는 삭제한다.</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed80568219e3da6b7393b9" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">2. 배포 준비 (Release 브랜치 생성)</h3>
+<div id="block-1b118fdf38ed80c9b948cdf0cf2ad805" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="sql" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git checkout -b release/v1.0 develop
+# QA 및 테스트 진행
+# ...
+git checkout master
+git merge release/v1.0
+git tag -a v1.0 -m "Release v1.0"
+git checkout develop
+git merge release/v1.0
+git branch -d release/v1.0</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80c6b113cf4862b9690a">새로운 배포를 준비할 때 release 브랜치를 생성하여 QA 및 테스트를 진행한다.</li>
+<li id="block-1b118fdf38ed802db3eef50021f9ede1">테스트 완료 후 master에 병합하고, 버전 태그를 추가한 뒤 develop에도 병합한다.</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed808e8bb4cce19e178926" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">3. 긴급 버그 수정 (Hotfix 브랜치 생성)</h3>
+<div id="block-1b118fdf38ed80c489e9cde80c06e3c3" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="properties" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git checkout -b hotfix/fix-bug master
+# 버그 수정
+# ...
+git checkout master
+git merge hotfix/fix-bug
+git checkout develop
+git merge hotfix/fix-bug
+git branch -d hotfix/fix-bug</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed804aa7c6fc3e9c4aaef0">운영 중인 서비스에서 긴급한 버그가 발생하면 hotfix 브랜치를 생성하여 해결한다.</li>
+<li id="block-1b118fdf38ed80f79156d065ae8957d8">master와 develop에 모두 병합하여 동기화한다.</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed803f93affdc6adbace3d" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">Git-Flow 장점 &amp; 단점</h3>
+<p id="block-1b118fdf38ed80188b99c6dc8280fd08" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">장점</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80b0a57ddbea3dc87e35">체계적인 브랜치 관리로 대규모 프로젝트 운영에 적합</li>
+<li id="block-1b118fdf38ed80efa447f33ac4d7a578">명확한 역할 분리(개발, 테스트, 배포, 핫픽스 등)</li>
+<li id="block-1b118fdf38ed80038148c8f9b9a6b5f8">버전 태깅과 QA가 용이하여 안정적인 배포 가능</li>
+</ul>
+<p id="block-1b118fdf38ed806ab128cb9097171980" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">단점</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed806eb198e81f3426c570">브랜치가 많아 복잡할 수 있음</li>
+<li id="block-1b118fdf38ed807991ddf89d2bf82df7">빠른 배포가 필요한 환경에서는 다소 비효율적</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 id="block-1b118fdf38ed8003b806e917e9d6bb63" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size26">GitHub-Flow 전략</h2>
+<div id="block-1b118fdf38ed80d0bf32ef0168ca555d" style="background-color: #ffffff; color: #37352f; text-align: start;"><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="890" data-origin-height="435"><span data-url="https://blog.kakaocdn.net/dna/cRT5qg/btsME75XhAm/AAAAAAAAAAAAAAAAAAAAAMbpJeX8BUojjX38Pl28So0JnhJpazkwAHCenLEgAmbH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=fz9ewaFMAhCC%2BUhY4dmltVuxi54%3D" data-phocus="https://blog.kakaocdn.net/dna/cRT5qg/btsME75XhAm/AAAAAAAAAAAAAAAAAAAAAMbpJeX8BUojjX38Pl28So0JnhJpazkwAHCenLEgAmbH/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=fz9ewaFMAhCC%2BUhY4dmltVuxi54%3D"><img src="./현대적인 Git Branch 전략 비교_files/img(1).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcRT5qg%2FbtsME75XhAm%2FAAAAAAAAAAAAAAAAAAAAAMbpJeX8BUojjX38Pl28So0JnhJpazkwAHCenLEgAmbH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dfz9ewaFMAhCC%252BUhY4dmltVuxi54%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="709.9844" height="347.01483" data-origin-width="890" data-origin-height="435" data-phocus-index="1"></span></figure>
+</div>
+<p id="block-1b118fdf38ed80afbe6ae2ea5fbaa256" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">GitHub-Flow는 Git-Flow보다 단순한 브랜치 전략으로, 짧은 개발 주기를 가진 프로젝트(예: 지속적인 배포 시스템)에 적합하다.</p>
+<p id="block-1b118fdf38ed80728249c6b700c2feea" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">GitHub-Flow는 자동화 및 지속적 통합(CI/CD)과 결합하여 운영되는 경우가 많다.</p>
+<p style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed80fead74d565ae2cef4d" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">GitHub-Flow 브랜치 구조</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed8011ae16f7a425951491">main (기존 master): 항상 최신 안정 버전을 유지하는 브랜치</li>
+<li id="block-1b118fdf38ed80baaf67e9499a1eda44">기능 브랜치: main에서 분기하여 개발을 진행하며, 완료되면 Pull Request(PR)를 통해 병합</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed809f8aedd92c14d3ba84" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">GitHub-Flow 작업 흐름</h3>
+<h3 id="block-1b118fdf38ed80039866d1840769ca2e" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">1. 브랜치 생성</h3>
+<div id="block-1b118fdf38ed80fc9c6ce35f5d7fdd0d" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="maxima" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git checkout -b feature/new-feature main</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80ecb5dbf5907774c043">새로운 기능 개발, 버그 수정 등 모든 작업은 main 브랜치에서 새로운 브랜치를 생성하여 진행</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed80b98c14f3a29e9a823a" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">2. 개발 &amp; 커밋 &amp; 푸시</h3>
+<div id="block-1b118fdf38ed8051b1a7cc48fbfb4054" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="maxima" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git add .
+git commit -m "Add new feature"
+git push origin feature/new-feature</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed8043ab58c5be250044b3">작업이 완료되면 원격 저장소에 푸시</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed801c8a22ce05167e372c" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">3. Pull Request(PR) 생성</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80d4a479ffbd7fb9538b">GitHub에서 PR(Pull Request)을 생성하여 코드 리뷰 요청</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed8068affbcbf54fd10732" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">4. 코드 리뷰 &amp; 테스트</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80ce9157c7c932333592">팀원들과 코드 리뷰 및 테스트를 진행</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed80c0b1f5c6e954020fdf" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">5. Merge 및 배포</h3>
+<div id="block-1b118fdf38ed80818deac88063909678" style="background-color: #ffffff; color: #37352f; text-align: start;">
+<pre class="maxima" style="background-color: #f9f9f9; color: #383942; text-align: left;"><code>git checkout main
+git merge feature/new-feature
+git push origin main</code></pre>
+</div>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed8012ae3cf4b805821dc8">Merge가 완료되면 자동으로 배포됨 (CI/CD 활용)</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 id="block-1b118fdf38ed80c889b0d740139351ec" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size23">GitHub-Flow 장점 &amp; 단점</h3>
+<p id="block-1b118fdf38ed8052900ce41edbcdd74d" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">장점</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed80c0837fcde42909a422">빠른 개발 및 배포 가능 (배포 자동화와 연계 가능)</li>
+<li id="block-1b118fdf38ed80beaadbec11bdb5d7f7">브랜치가 적어 관리가 용이</li>
+<li id="block-1b118fdf38ed80efa2c1f6ac0b6988b6">Pull Request(PR) 기반 코드 리뷰 가능</li>
+</ul>
+<p id="block-1b118fdf38ed80baa522fff166e7ef35" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size16">단점</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed801f8aa2cb2bee0f6293">긴 개발 주기 프로젝트에는 적합하지 않음</li>
+<li id="block-1b118fdf38ed80c7a105e0e8acc1be8b">QA 및 테스트 브랜치가 없어 신중한 배포가 필요</li>
+</ul>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 id="block-1b118fdf38ed8065abe5fcb17027c64f" style="background-color: #ffffff; color: #37352f; text-align: start;" data-ke-size="size26">Git-Flow vs GitHub-Flow 비교</h2>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #37352f; text-align: start;" data-ke-list-type="disc">
+<li id="block-1b118fdf38ed8056b461c74cd3c871d7">장기적인 프로젝트(정기적 배포 &amp; QA 필요) → Git-Flow 추천</li>
+<li id="block-1b118fdf38ed80f4bd96dd38456c9548">빠른 개발 &amp; 지속적 배포(CI/CD 환경) → GitHub-Flow 추천</li>
+</ul>
+<div style="background-color: #ffffff; color: #37352f; text-align: start;">
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-align="alignLeft">
+<tbody>
+<tr style="color: #000000;">
+<td>
+<div><span>비교 항목</span></div>
+</td>
+<td>
+<div><span>Git-Flow</span></div>
+</td>
+<td>
+<div><span>GitHub-Flow</span></div>
+</td>
+</tr>
+<tr style="color: #000000;">
+<td>
+<div><span>브랜치 개수</span></div>
+</td>
+<td>
+<div><span>다수 (master, develop, feature, release, hotfix)</span></div>
+</td>
+<td>
+<div><span>최소 (main + 기능 브랜치)</span></div>
+</td>
+</tr>
+<tr style="color: #000000;">
+<td>
+<div><span>배포 방식</span></div>
+</td>
+<td>
+<div><span>배포 주기(릴리즈 버전 기반)</span></div>
+</td>
+<td>
+<div><span>지속적인 배포(CI/CD)</span></div>
+</td>
+</tr>
+<tr style="color: #000000;">
+<td>
+<div><span>버전 관리</span></div>
+</td>
+<td>
+<div><span>명확한 버전 태깅</span></div>
+</td>
+<td>
+<div><span>자동 배포 위주</span></div>
+</td>
+</tr>
+<tr style="color: #000000;">
+<td>
+<div><span>적합한 프로젝트</span></div>
+</td>
+<td>
+<div><span>대규모 프로젝트, 긴 개발 주기</span></div>
+</td>
+<td>
+<div><span>빠른 배포가 필요한 프로젝트</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+            <!-- System - START -->
+
+<!-- System - END -->
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//iwantbaobab.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 557
+}</script>
+<div class="wrap_btn" id="reaction-557" data-tistory-react-app="Reaction"><button class="btn_post uoc-icon" data-tiara-action-name="공감_클릭"><div class="uoc-icon"><span class="ico_postbtn ico_like">좋아요</span><span class="txt_like uoc-count">공감</span></div></button></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciNVsj%2FbtsMF0kBREh%2FAAAAAAAAAAAAAAAAAAAAANh2LFgKZByZSUPC9oEc_ZfCT5SJrQRCf__dJmStU5gH%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DL1hb%252FdRtAiXlHiTpl%252FAq%252FKd4wzI%253D" data-title="현대적인 Git Branch 전략 비교" data-description="졸업 작품 때 Git flow 전략을 사용해 3개월 간의 개발 프로젝트를 성공적으로 마무리했던 경험이 있다. 그때는 별도로 블로그에 정리해서 포스팅하지 않았던 것 같아서 이번 기회에 정리하였다. GIT 브랜치 전략의 필요성소프트웨어 개발에서는 여러 개발자가 동일한 코드 저장소에서 협업하는 경우가 많다.이때, 효율적인 브랜치 관리 전략이 없으면 최신 코드 확인, 개발 시작 지점 결정, 배포 브랜치 선택 등이 혼란을 초래할 수 있다.이러한 문제를 해결하기 위해 Git 브랜치 전략이 등장했다.Git 브랜치 전략은 개발자들이 협업할 때 코드 충돌을 최소화하고, 일정한 규칙을 통해 소스를 체계적으로 관리하는 방법론이다.이번 글에서는 가장 널리 사용되는 Git 브랜치 전략인 Git-Flow와 GitHub-Flow에.." data-profile-image="https://tistory1.daumcdn.net/tistory/4589519/attach/8f72580e4a784feeb6e562dc537f5416" data-profile-name="iwantbaobab" data-pc-url="https://iwantbaobab.tistory.com/557" data-relative-pc-url="/557" data-blog-title="새싹부터 바오밥"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"><div class="bundle_post"><button class="btn_mark" data-service="url" data-tiara-action-name="공유_클릭" data-tiara-layer="copy_url" data-tiara-copy="URL복사"><span class="ico_sns ico_url"></span><span class="txt_sns">URL 복사</span></button><button class="btn_mark" data-service="kakaotalk" data-tiara-action-name="공유_클릭" data-tiara-layer="kakao" data-tiara-copy="카카오톡 공유"><span class="ico_sns ico_kt"></span><span class="txt_sns">카카오톡 공유</span></button><button class="btn_mark" data-service="facebook" data-tiara-action-name="공유_클릭" data-tiara-layer="facebook" data-tiara-copy="페이스북 공유"><span class="ico_sns ico_fb"></span><span class="txt_sns">페이스북 공유</span></button><button class="btn_mark" data-service="twitter" data-tiara-action-name="공유_클릭" data-tiara-layer="X" data-tiara-copy="엑스 공유"><span class="ico_sns ico_x"></span><span class="txt_sns">엑스 공유</span></button><span class="ico_postbtn ico_arrbt"></span></div></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="557" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4589519" data-url="https://iwantbaobab.tistory.com/557" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭" data-tiara-copy="구독하기"><em class="txt_state">구독하기</em><strong class="txt_tool_id">새싹부터 바오밥</strong><span class="img_common_tistory ico_check_type1"></span></button><div class="postbtn_ccl" data-ccl-type="1" data-ccl-derive="2">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span> <span class="ico_postbtn ico_ccl2">비영리</span> <span class="ico_postbtn ico_ccl3">변경금지</span> 
+        </span>
+        <span class="screen_out">(새창열림)</span>
+    </a>
+</div>
+<!--
+<rdf:RDF xmlns="https://web.resource.org/cc/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko" />
+    </Work>
+    <License rdf:about="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko">
+        <permits rdf:resource="https://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="https://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="https://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="https://web.resource.org/cc/Attribution"/>
+        <prohibits rdf:resource="https://web.resource.org/cc/CommercialUse"/>
+
+    </License>
+</rdf:RDF>
+-->  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="https://iwantbaobab.tistory.com/category/Tech">Tech</a> &gt; <a href="https://iwantbaobab.tistory.com/category/Tech/%5BSCM%5D%20Git%20%26%20Github">[SCM] Git &amp; Github</a>' 카테고리의 다른 글</h4>
+  <div class="table-wrap"><table>
+    <tbody><tr>
+      <th><a href="https://iwantbaobab.tistory.com/672">.gitignore 개념과 템플릿(Feat. gitignore.io)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.05.09</td>
+    </tr>
+    <tr>
+      <th><a href="https://iwantbaobab.tistory.com/556">Git 핵심 요약</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.03.09</td>
+    </tr>
+    <tr>
+      <th><a href="https://iwantbaobab.tistory.com/124">Github 모든 커밋 초기화</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.10.08</td>
+    </tr>
+    <tr>
+      <th><a href="https://iwantbaobab.tistory.com/123">Github Branch 삭제하는 방법</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.10.08</td>
+    </tr>
+    <tr>
+      <th><a href="https://iwantbaobab.tistory.com/122">Github Default Branch 변경하는 방법</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.10.08</td>
+    </tr>
+  </tbody></table></div>
+</div>
+
+<!-- PostListinCategory - END -->
+
+    </div>
+    
+
+    
+      <div class="related-articles">
+        <h2><strong>'Tech/[SCM] Git &amp; Github'</strong> Related Articles</h2>
+        <ul>
+          
+            <li>
+              <a href="https://iwantbaobab.tistory.com/672?category=1222851">
+                <span class="thum">
+                  
+                    <img loading="lazy" src="./현대적인 Git Branch 전략 비교_files/saved_resource" alt="">
+                  
+                </span>
+                <span class="title">.gitignore 개념과 템플릿(Feat. gitignore.io)</span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://iwantbaobab.tistory.com/556?category=1222851">
+                <span class="thum">
+                  
+                    <img loading="lazy" src="./현대적인 Git Branch 전략 비교_files/saved_resource(1)" alt="">
+                  
+                </span>
+                <span class="title">Git 핵심 요약</span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://iwantbaobab.tistory.com/124?category=1222851">
+                <span class="thum">
+                  
+                </span>
+                <span class="title">Github 모든 커밋 초기화</span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://iwantbaobab.tistory.com/123?category=1222851">
+                <span class="thum">
+                  
+                </span>
+                <span class="title">Github Branch 삭제하는 방법</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <div data-tistory-react-app="Namecard"><div class="tt_box_namecard"><div class="tt_cont"><a class="tt_tit_cont" href="https://iwantbaobab.tistory.com/">새싹부터 바오밥</a><a class="tt_desc" href="https://iwantbaobab.tistory.com/">바오밥 나무가 될테야</a><button class="tt_btn_subscribe" data-tiara-action-name="프로필영역 구독 버튼_클릭" data-tiara-copy="구독하기" type="button"><span class="tt_txt_g">구독하기</span><span class="tt_img_area_reply tt_ico_cross"></span></button></div><a class="tt_wrap_thumb" href="https://iwantbaobab.tistory.com/"><span class="tt_thumb_g" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/S56x56/?scode=mtistory2&amp;fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4589519%2Fattach%2F8f72580e4a784feeb6e562dc537f5416&quot;);"></span></a></div></div><div id="entry557Comment">
+      <div data-tistory-react-app="Comment"><div class="tt-comment-cont"><div class="tt-box-total"><span class="tt_txt_g">댓글</span><span class="tt_num_g">0</span></div><div class="tt-area-reply"></div><form style="margin: 0px;"><div class="tt-area-write"><div class="tt-box-thumb"><span class="tt-thumbnail" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/C44x44@2x.fwebp.q85/?fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_07.png&quot;);"></span></div><div class="tt_wrap_write"><div class="tt-box-account"><input maxlength="32" placeholder="이름" title="이름" type="text" value=""><input maxlength="12" placeholder="비밀번호" title="비밀번호" type="password" value=""></div><div class="tt-box-textarea"><div class="tt-inner-g"><textarea id="comment" placeholder="로그인 댓글만 허용한 블로그입니다"></textarea></div></div><div class="tt-box-write"><label class="tt-xe-label"><input id="secret" type="checkbox"><span class="tt_img_area_reply tt-xe-input-helper"></span><span class="tt-xe-label-text">비밀글</span></label><button class="tt-btn_register" disabled="" type="submit">등록</button></div></div></div></form></div></div>
+
+    </div>
+<script type="text/javascript">loadedComments[557]=true;
+findFragmentAndHighlight(557);</script>
+
+
+  
+
+        
+    
+          </div>
+
+          
+
+          
+
+          
+
+        </article>
+        <aside id="aside">
+          <div class="inner">
+            <div class="sidebar-1">
+              
+                  <!-- 최근 포스트 -->
+                  <div class="posts">
+                    <h2>최근 포스트</h2>
+                    <ul>
+                      
+                        <li><a href="https://iwantbaobab.tistory.com/698">[구름톤 딥다이브 후기] - 클라우드 네이티브 엔⋯</a></li>
+                      
+                        <li><a href="https://iwantbaobab.tistory.com/697">[CKA] ReplicaSet</a></li>
+                      
+                        <li><a href="https://iwantbaobab.tistory.com/696">[CKA] Pod</a></li>
+                      
+                        <li><a href="https://iwantbaobab.tistory.com/695">[CKA] Kube-proxy</a></li>
+                      
+                        <li><a href="https://iwantbaobab.tistory.com/694">[CKA] kubelet</a></li>
+                      
+                    </ul>
+                  </div>
+                
+            </div>
+
+            <div class="sidebar-2">
+              
+                  <!-- 검색 -->
+                  <div class="search">
+                    <h2>검색</h2>
+                    
+                      <fieldset>
+                        <label for="search" class="screen_out">블로그 내 검색</label>
+                        <input id="search" type="text" name="search" value="" placeholder="검색내용을 입력하세요." onkeypress="if (event.keyCode == 13 ) { try {
+    window.location.href = &#39;/search&#39; + &#39;/&#39; + looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);
+    document.getElementsByName(&#39;search&#39;)[0].value = &#39;&#39;;
+    return false;
+} catch (e) {} }">
+                        <button type="button" onclick="try {
+    window.location.href = &#39;/search&#39; + &#39;/&#39; + looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);
+    document.getElementsByName(&#39;search&#39;)[0].value = &#39;&#39;;
+    return false;
+} catch (e) {}">검색</button>
+                      </fieldset>
+                    
+                  </div>
+                
+            </div>
+
+            <div class="sidebar-3">
+              
+                  <!-- 전체 방문자 -->
+                  <div class="count">
+                    <h2>전체 방문자</h2>
+                    
+                    <ul>
+                      <li><strong>오늘</strong>3</li>
+                      <li><strong>어제</strong>114</li>
+                    </ul>
+                  </div>
+                
+            </div>
+          </div>
+        </aside>
+      </section>
+      <hr>
+      
+      <footer id="footer">
+        <p class="copyright"> 바오밥처럼 튼튼한 인프라를 설계하는 엔지니어, 김재환
+      </p></footer>
+    </div>
+    <script src="./현대적인 Git Branch 전략 비교_files/script(1).js"></script>
+  
+<div class="#menubar menu_toolbar toolbar_rc">
+  <h2 class="screen_out">티스토리툴바</h2>
+<div class="btn_tool"><button class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4589519" data-url="https://iwantbaobab.tistory.com" data-device="web_pc" data-tiara-copy="구독하기"><strong class="txt_tool_id">새싹부터 바오밥</strong><em class="txt_state">구독하기</em><span class="img_common_tistory ico_check_type1"></span></button></div></div>
+<div class="#menubar menu_toolbar toolbar_lb"></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="./현대적인 Git Branch 전략 비교_files/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+        <!-- PreventCopyContents - START -->
+        <script type="text/javascript">document.oncontextmenu = new Function ('return false');
+document.ondragstart = new Function ('return false');
+document.onselectstart = new Function ('return false');
+document.body.style.MozUserSelect = 'none';</script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/script(2).js"></script>
+
+        <!-- PreventCopyContents - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="./현대적인 Git Branch 전략 비교_files/roosevelt_dk_bt.js" async="async"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"4589519-557","customProps":{"userId":"0","blogId":"4589519","entryId":"557","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"557","entryTitle":"현대적인 Git Branch 전략 비교","entryType":"POST","categoryName":"Tech/[SCM] Git & Github","categoryId":"1222851","serviceCategoryName":"IT 인터넷","serviceCategoryId":401,"author":"4644863","authorNickname":"iwantbaobab","blogNmae":"새싹부터 바오밥","image":"kage@ciNVsj/btsMF0kBREh/JVPm4XrsWxeF15KwM5M860","plink":"/557","tags":[]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="./현대적인 Git Branch 전략 비교_files/index(1).js"></script>
+<script src="./현대적인 Git Branch 전략 비교_files/polyfills-legacy(1).js" nomodule="true" defer="true"></script>
+<script src="./현대적인 Git Branch 전략 비교_files/index-legacy(1).js" nomodule="true" defer="true"></script>
+
+                
+
+<div id="__phocus__" class="__phocus__" tabindex="-1"></div><div id="shortcutLayer" class="doc_help" style="display: none;"><button class="btn_doc_close">닫기</button>
+  <h2 class="title">단축키</h2>
+  <div class="content mac_platform">
+    <div class="container">
+      <h3 class="item_title">내 블로그</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>내 블로그 - 관리자 홈 전환</th>
+      <td>
+        <div class="pc">
+          <kbd>Q</kbd>
+        </div>
+        <div class="mac">
+          <kbd>Q</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>새 글 쓰기</th>
+      <td>
+        <div class="pc">
+          <kbd>W</kbd>
+        </div>
+        <div class="mac">
+          <kbd>W</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+      <h3 class="item_title">블로그 게시글</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>글 수정 (권한 있는 경우)</th>
+      <td>
+        <div class="pc">
+          <kbd>E</kbd>
+        </div>
+        <div class="mac">
+          <kbd>E</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>댓글 영역으로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>C</kbd>
+        </div>
+        <div class="mac">
+          <kbd>C</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <h3 class="item_title">모든 영역</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>이 페이지의 URL 복사</th>
+      <td>
+        <div class="pc">
+          <kbd>S</kbd>
+        </div>
+        <div class="mac">
+          <kbd>S</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>맨 위로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>T</kbd>
+        </div>
+        <div class="mac">
+          <kbd>T</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>티스토리 홈 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>H</kbd>
+        </div>
+        <div class="mac">
+          <kbd>H</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>단축키 안내</th>
+      <td>
+        <div class="pc">
+          <kbd>Shift</kbd> + <kbd>/</kbd>
+        </div>
+        <div class="mac">
+          <kbd>⇧</kbd> + <kbd>/</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="info">* 단축키는 한글/영문 대소문자로 이용 가능하며, 티스토리 기본 도메인에서만 동작합니다.</p>
+  </div></body></html>

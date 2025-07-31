@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* 로딩중 */
+.page-loader { position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(255, 255, 255, 0.7); z-index:999; display:none;}
+.loading { position:absolute; left:50%; top:50%; margin-top:-85px; margin-left:-160px; width:318px; height:168px; border:1px solid #dcdcdc; background:#fff url('../images/common/loader.gif') no-repeat 50% 36px; }
+.loading strong{ display:block; margin-top:96px; font-size:18px; font-weight:900; color:#444; text-align:center; }
+.loading p{ font-size:15px; color:#666; text-align:center; }
+
+/* 코드 보기 */
+pre {
+	/* border-top-color: #282B2E !important;
+	border-right-color: #282B2E !important;
+	border-bottom-color: #282B2E !important;
+	border-left-color: #282B2E !important; */
+	/* ck에디터 임시 적용 */
+	position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+    /* border: 0.3em solid hsl(30,20%,40%); */
+    border-radius: 0.5em;
+    /* box-shadow: 1px 1px 0.5em black inset; */
+}
+
+
+pre:not(pre[class*='language-']){
+	background: #272822;
+	border-top-color: #272822 !important;
+    border-right-color: #272822 !important;
+    border-bottom-color: #272822 !important;
+    border-left-color: #272822 !important;
+    
+    color: #f8f8f2;
+    text-shadow: 0 1px rgb(0 0 0 / 30%);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.contents-type-list li label.icon_TECH_BLOG {
+	background:url("../images/new/icon_popup01.svg") 60px center no-repeat;
+	background-size:58px;
+}
+.contents-type-list li label.icon_QANDA {
+	background:url("../images/new/icon_popup04.svg") 60px center no-repeat;
+	background-size:58px;
+}
+.contents-type-list li label.icon_FREE_TALK {
+	background:url("../images/new/icon_popup05.svg") 60px center no-repeat;
+	background-size:58px;	
+}
+.contents-type-list li label.icon_TECH_GUIDE {	
+	background:url("../images/new/icon_popup03.svg") 60px center no-repeat;
+	background-size:58px;
+}
+.contents-type-list li label.icon_COLABO {	
+	background:url("../images/new/icon_popup01.svg") 60px center no-repeat;
+	background-size:58px;	
+}
+
+.my-contents-list .caption strong.TECH_BLOG {
+	color:#34a789;
+	border-color:#34a789;
+}
+.my-contents-list .caption strong.QANDA {
+	color:#2eb6d0;
+	border-color:#2eb6d0;
+}
+.my-contents-list .caption strong.FREE_TALK {
+	color:#a85dab;
+	border-color:#a85dab;
+}
+
+.feed-area dd h2 strong.TECH_BLOG {
+	color:#34a789;
+	border-color:#34a789;
+}
+.feed-area dd h2 strong.QANDA {
+	color:#2eb6d0;
+	border-color:#2eb6d0;
+}
+.feed-area dd h2 strong.FREE_TALK {
+	color:#a85dab;
+	border-color:#a85dab;
+}
+
+/*.community-notice li strong.TECH_BLOG em { 
+	color:#34a789;
+	border-color:#34a789;
+}
+.community-notice li strong.FREE_TALK em { 
+	color:#a85dab;
+	border-color:#a85dab;
+}
+.community-notice li strong.QANDA em { 
+	color:#2eb6d0;
+	border-color:#2eb6d0;
+}*/

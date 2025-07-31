@@ -1,0 +1,345 @@
+.none {
+    display: none !important;
+}
+
+
+.sub-sec-navigation {
+    overflow: hidden;
+    margin-top: -30px !important;
+    margin-bottom: 30px;
+}
+
+/*.menu .inquiry {
+  position: absolute;
+  bottom: -96px;
+  left: 0;
+  right: 40px;
+  padding: 13px 20px;
+  border: 1px solid #222;
+  text-align: center;
+}
+
+.menu .inquiry em {
+  display: inline-block;
+  padding-right: 22px;
+  color: #222;
+  font-size: 16px;
+  background: #fff url("../../images/external/main/ico_link.png") no-repeat right top -3px;
+  background-size: 20px auto;
+}*/
+
+.menu .inquiry2 {
+  /*position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 40px;
+  padding: 13px 20px;*/
+}
+
+/**********
+    NOTICE
+***********/
+.sub-sec.mypage .sec-notice-title {
+  color: #222;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.sub-sec.mypage .sec-notice-list {
+  margin-top: 44px;
+  border-top: 1px solid #222;
+}
+
+.sub-sec.mypage .sec-notice-list li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.sub-sec.mypage .sec-notice-list li.head span {
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+}
+
+.sub-sec.mypage .sec-notice-list li.head p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+}
+
+.sub-sec.mypage .sec-notice-list li.head em {
+  font-size: 16px;
+  font-weight: 300;
+  color: #999;
+}
+
+.sub-sec.mypage .sec-notice-list li span {
+  display: inline-block;
+  width: 90px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.sub-sec.mypage .sec-notice-list li p {
+  width: 70%;
+  padding-left: 40px;
+  color: #222;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.sub-sec.mypage .sec-notice-list li em {
+  display: inline-block;
+  width: 15%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.sub-sec.mypage .sec-notice-list li em.plus {
+  color: #ff6646;
+}
+
+.sub-sec.mypage .sec-notice-list li em.minus {
+  color: #222;
+}
+
+.sub-sec.mypage .sec-notice-list li .btn {
+  display: inline-block;
+  border: 1px solid #999;
+  padding: 8px 12px 4px 12px;
+  font-weight: normal;
+}
+
+.sub-sec.mypage .sec-notice-list li .btn:hover {
+  border: 1px solid #ff6646;
+  color: #ff6646;
+}
+
+.login_style {
+	background: url('/resource/images/external/main/ico_header_menu06.png') no-repeat left top -1px !important; 
+	background-size: 14px auto !important;
+	cursor: pointer;
+}
+
+.notice-inquiry {
+	position: relative;
+	float: right;
+    padding: 8px 20px;
+    border: 1px solid #222;
+    text-align: center;
+    line-height: 15px;
+    top: -4px;
+}
+
+.notice-inquiry em {
+    display: inline-block;
+    /* padding-right: 22px; */
+    color: #222;
+    font-size: 16px;
+    /* background: #fff url(../../images/external/main/custom_mail.svg) no-repeat right top -3px; */
+    background-size: 20px auto;
+}
+
+.mileage-inquiry {
+	position: relative;
+	float: right;
+    padding: 8px 20px;
+    border: 1px solid #222;
+    text-align: center;
+    line-height: 15px;
+    top: -4px;
+}
+
+.mileage-inquiry em {
+    display: inline-block;
+    padding-right: 0px;
+    color: #222;
+    font-size: 16px;
+    background-size: 20px auto;
+}
+        
+@media (max-width: 580px) {
+  .sub-sec.mypage .sec-notice-list li {
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }     
+  
+  .sub-sec.mypage .sec-notice-list li p {
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 0;
+  }   
+  
+  .header .header-search {
+    display: block;
+    position: absolute;
+    top: -70px !important;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-top: 1px solid #222;
+    padding: 15px 55px 15px 15px;
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header .header-search.on {
+    top: 60px !important;
+  }
+}
+/**********
+    NOTICE.
+***********/
+
+
+
+@media (max-width: 1024px) {
+.footer .footer-sec01 .site-area {
+    margin-left: 0;
+    margin-top: 20px;
+    width: 49% !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: right;
+    margin-left: 0px !important;
+  }
+  
+  .footer .footer-sec02 {
+    display: block;
+    float: none;
+    position: relative;
+    padding-top: 27px;
+    margin-top: 75px !important;
+  }
+}
+
+.sub-sec-title .more2 {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    padding-right: 25px;
+    color: #222;
+    font-size: 14px;
+    background: url(../../images/external/blog/ico_more.png) no-repeat right top -3px;
+    background-size: 18px auto;
+}
+
+@media (max-width: 580px) {
+	.sub-sec-title .more2 {
+	  top: 15%;
+	  -webkit-transform: translateY(-50%);
+	          transform: translateY(-50%);
+	}
+}
+
+@media (max-width: 580px) {
+	.sub-sec .sec-area-list01 .sec-cont .title {
+		margin-top: 5px;
+		height: 35px !important;
+		-webkit-line-clamp: 2;
+		font-size: 16px;
+		line-height: 18px !important;
+	}
+	
+}
+
+.sub-sec .sec-area-list01 .sec-cont .desc {
+  margin-top: 16px;
+  color: #777;
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: 300;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 66px;
+}
+
+.sub-sec.mypage .sub-sec-layout .sec-layout-right {
+    width: 900px;
+    margin-left: 60px;
+    margin-top: -20px;
+}
+
+.sub-sec-apply .sec-apply-area2 {
+  padding: 0px 0px;
+  border: 0px solid #e6e6e6;
+}
+
+.sub-sec-apply .sec-apply-area2 .apply-p2 {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+.header-etc a.etc-person2 {
+  padding: 15px;
+  font-size: 16px;
+}
+
+.header-etc a.etc-person2:hover {
+  color: #ff6640;
+}
+@media (max-width: 1280px) {
+  /* LAYOUT */
+  .header-etc a.etc-person2 {
+    display: none;
+  }
+}
+
+.header-etc a.etc-person3 {
+  padding: 15px;
+  font-size: 16px;
+}
+
+.header-etc a.etc-person3:hover {
+  color: #ff6640;
+}
+@media (max-width: 1280px) {
+  /* LAYOUT */
+  .header-etc a.etc-person3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+	.sub-sec.mypage .sec-notice-title{
+		font-size: 20px;
+		font-weight: 400;
+	}
+	
+	.notice-inquiry{
+		padding: 8px 12px;
+		top: -7px;
+	}
+	
+	.notice-inquiry em{
+		font-size: 14px;
+		font-weight: 250;
+		/* background: #fff url(../../images/external/main/custom_mail.svg) no-repeat right top -2px; */
+    	background-size: 18px auto;
+    	padding-top: 1px;
+	}
+	
+	.sub-sec.mypage .sec-notice-list li span{
+		font-size: 13px;
+		font-weight: 250;
+	}
+	
+	.sub-sec.mypage .sec-notice-list li p{
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

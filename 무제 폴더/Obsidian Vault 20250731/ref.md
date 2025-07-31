@@ -1,0 +1,158 @@
+web 서버 / was 서버
+- https://velog.io/@developerjun0615/WEB-WAS-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C
+
+***
+- https://www.google.com/search?sca_esv=41c54eb164886e82&sxsrf=AE3TifPQJfJWqsp4AEYjJqP4eV3yvi6KmA:1752559959903&udm=2&fbs=AIIjpHyDg0Pef0CibV20xjIa-FRejxCuOmkq074km2sZXr7uqz9_8tiStZcoMiP-q5iAtTZea012_WShjO6gd8_YyX878vIUOOVaRtH7vIltuz604IVIGI7VytTfxeVPAcHk8vmMhJm3iwX_qsdHdakvSQ2sHk4WbWOBwR2i4HGbKdI6C9p-LC5iXHqBj8C0OLPlhsCB5GKmPRGT-Lk0i01GOCa61SSO7A&q=gitlab+flow&sa=X&ved=2ahUKEwjK_e3Omr6OAxUBsFYBHfZCDckQtKgLegQIExAB&biw=960&bih=934&dpr=2#vhid=y64UXVBKUWbf3M&vssid=mosaic
+- https://brownbears.tistory.com/605
+- https://velog.io/@jhchoi94/Git-GitLab-flow
+- https://developers.worksmobile.com/kr/docs/introduction
+- https://developers.worksmobile.com/kr/docs/developer-console
+- https://developers.worksmobile.com/kr/docs/bot/
+- https://developers.worksmobile.com/kr/docs/bot-api
+- https://help.worksmobile.com/ko/admin-guides/manage-service/bot/
+- https://developers.worksmobile.com/kr/docs/bot-send-content
+- https://developers.worksmobile.com/kr/docs/bot-send-link
+- https://m.kin.naver.com/qna/dirs/1040206/docs/389616135?answerNo=1
+- https://m.blog.naver.com/PostView.naver?blogId=dreamyoungs_inc&logNo=222946558854&proxyReferer=&noTrackingCode=true
+- https://css-tricks.com/the-gap-strikes-back-now-stylable/
+- https://naver.worksmobile.com/naver-works-function-list/admin/
+- https://help.wantedspace.ai/hc/ko/articles/15265219653529-%EB%84%A4%EC%9D%B4%EB%B2%84%EC%9B%8D%EC%8A%A4-%EC%97%B0%EB%8F%99%EC%9C%BC%EB%A1%9C-%EB%8D%94-%ED%8E%B8%ED%95%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+- https://naver.worksmobile.com/whats-new/workplace-user-notice/change-in-screen/admin/
+- https://naver.worksmobile.com/whats-new/notice/works-admin-console/overview/
+- https://naver.worksmobile.com/ebook/
+- https://naver.worksmobile.com/products/naver-works/
+- naverworks rss
+	- https://naver.worksmobile.com/notice/38538/
+	- [Admin] 대시보드에서 RSS로 알림 받는 기능 제공
+	- **■ 서비스 상태 RSS 기능 추가**: 서비스 상태에 RSS 기능을 추가하여, RSS를 설정한 경우 업데이트 사항이 있을 때 알림을 받을 수 있도록 개선되었습니다. 
+	- ※ RSS 기능을 설정한 경우에만 알림을 받을 수 있습니다.
+- 네카라쿠배 당토 직야 몰두센 마에그원: https://devmoney.tistory.com/344
+- 모니터링 스카우터
+	- https://github.com/scouter-project/scouter
+	- https://velog.io/@viewrain/Scouter-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%EC%8B%9C%EC%8A%A4%ED%85%9C
+	- https://syhwang.tistory.com/100
+	- https://developercc.tistory.com/30
+	- https://sbslc.tistory.com/59
+	- https://12bme.tistory.com/396
+	- https://scouter-contrib.github.io/scouter-paper/manual.html
+	- https://github.com/scouter-project/scouter/blob/master/scouter.document/main/Setup_kr.md
+	- https://gunsdevlog.blogspot.com/
+	- https://github.com/scouter-contrib/scouter-paper/blob/master/README_kr.md
+	- https://github.com/scouter-contrib/scouter-paper/tree/master
+	- https://hackjsp.tistory.com/59
+	- https://hackjsp.tistory.com/80
+	- https://m.blog.naver.com/wasgosu-2010/222349478569
+	- https://onestone-note.tistory.com/111
+	- https://velog.io/@borab/Scouter-paper-%EC%84%A4%EC%B9%98
+	- https://lilo.tistory.com/113
+	- https://github.com/scouter-contrib/scouter-paper/releases
+	- https://github.com/scouter-project/scouter/blob/master/scouter.document/client/Reading-XLog_kr.md
+	- https://gunsdevlog.blogspot.com/2018/04/scouter-web-ui-paper.html
+	- https://www.cubrid.com/blog/3834533
+	- https://velog.io/@choiys0212/Scouter-%EC%82%AC%EC%9A%A9%EB%B2%95
+	- https://github.com/scouter-project/scouter
+	- https://github.com/scouter-project
+	- https://github.com/scouter-contrib/scouter-paper
+	- https://scouter-contrib.github.io/scouter-paper/
+- 개발 트렌드 센싱 - 국내외 테크블로그, RSS 피드
+	- https://jyha81.medium.com/%EA%B8%B0%EC%88%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8-rss-%EC%A0%95%EB%A6%AC-281525403dad
+	- https://dev.gmarket.com/118
+	- https://heyjihye.com/blog/rss-feed/
+	- https://student513.tistory.com/89
+	- https://heyjihye.com/blog/rss-feed/
+	- https://velog.io/@hadooboo/%ED%8C%80-%EA%B0%9C%EB%B0%9C-%EB%AC%B8%ED%99%94-%EB%B0%9C%EC%A0%84%EC%8B%9C%ED%82%A4%EA%B8%B0-RSS-%ED%94%BC%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%9C-IT-%EB%A7%A4%EC%B2%B4-%EA%B5%AC%EB%8F%85-Slack-App-%EC%97%B0%EB%8F%99
+	- https://ray5273.tistory.com/entry/%EA%B0%9C%EB%B0%9C-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%84%BC%EC%8B%B1-%EA%B5%AD%EB%82%B4%EC%99%B8-%ED%85%8C%ED%81%AC%EB%B8%94%EB%A1%9C%EA%B7%B8-RSS-%ED%94%BC%EB%93%9C
+	- https://velog.io/@hyungjungson/230111-%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80-TIL
+	- https://feeds.feedburner.com/geeknews-feed
+	- https://status.openai.com/history.rss
+	- https://pypi.org/project/feedparser/
+	- https://techblog.lycorp.co.jp/ko
+	- https://medium.com/musinsa-tech
+	- https://d2.naver.com/home
+	- https://techblog.woowahan.com/
+	- https://medium.com/coupang-engineering/kr/home
+	- https://medium.com/daangn
+	- https://blog.banksalad.com/
+	- https://github.blog/
+	- https://developers.googleblog.com/
+	- https://www.linkedin.com/blog/engineering
+	- https://dropbox.tech/developers
+	- https://techcommunity.microsoft.com/t5/custom/page/page-id/Blogs
+	- https://engineering.fb.com/
+	- https://netflixtechblog.com/
+	- https://blog.x.com/engineering/en_us#
+	- https://slack.engineering/
+	- https://couplewith.tistory.com/462
+	- https://couplewith.tistory.com/476
+	- https://helloworld.kurly.com/
+	- https://tech.kakaoenterprise.com/
+	- https://tech.devsisters.com/
+	- https://engineering.linecorp.com/
+	- https://toss.tech/
+	- https://medium.com/zigbang
+	- https://medium.com/watcha
+	- https://hyperconnect.github.io/
+	- https://techblog.yogiyo.co.kr/
+	- https://tech.socarcorp.kr/
+	- https://www.ridicorp.com/story-category/tech-blog/
+	- https://meetup.toast.com/
+	- https://news.hada.io/
+	- https://velog.io/
+	- https://blog.gaerae.com/
+	- https://www.44bits.io/ko
+	- https://news.hada.io/
+	- https://ray5273.tistory.com/entry/%EA%B0%9C%EB%B0%9C-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%84%BC%EC%8B%B1-%EA%B5%AD%EB%82%B4%EC%99%B8-%ED%85%8C%ED%81%AC%EB%B8%94%EB%A1%9C%EA%B7%B8-RSS-%ED%94%BC%EB%93%9C
+	- https://techblog.woowahan.com/feed/
+	- https://www.apple.com/newsroom/
+	- https://feeder.co/discover/36594f8e3b/medium-com-zigbang-source-rss-2f055286701b-4
+	- https://taking.kr/korea-it-technology-blog-list-with-rss/
+- https://maily.so/grabnews/posts/72nzn76rp54
+- https://joyful-class-maker.tistory.com/96
+- https://engineering.linecorp.com/ko/blog/effective-codereview
+- https://velog.io/@jkseo50/%EC%BD%94%EB%93%9C-%EB%A6%AC%EB%B7%B0%EC%9D%98-%EC%A0%95%EC%9D%98-%EB%B0%8F-%EB%B0%A9%EB%B2%95%EB%A1%A0
+- https://gitlab.com/groups/gitlab-org/examples/-/labels
+- https://gitlab-docs.infograb.net/ee/user/project/labels.html
+- https://data-newbie.tistory.com/1040
+- https://docs.github.com/ko/issues/using-labels-and-milestones-to-track-work/managing-labels
+- https://velog.io/@modolee/github-initial-settings
+- https://soooom.tistory.com/418
+- https://lusida-coding.tistory.com/140
+- https://velog.io/@hoho4190/GitHub-Actions-%EC%9D%B4%EC%8A%88%EC%99%80-PR%EC%97%90-Label-%EC%9E%90%EB%8F%99-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0
+- https://taekki-dev.tistory.com/40
+- https://kimyu0218.tistory.com/87
+- https://imhihi.tistory.com/entry/Github-%EA%B9%83%ED%97%99%EC%9C%BC%EB%A1%9C-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0Issue-Pull-Request-Label
+***
+스카우터 사용법 관련 / 스카우터 모니터링
+- https://shallow-learning.tistory.com/entry/Scouter-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-APM%EC%9C%BC%EB%A1%9C-%EC%9B%B9%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%B1%EB%8A%A5-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%ED%95%98%EA%B8%B0-%EB%AC%B4%EB%A3%8C
+- https://csg1353.tistory.com/148
+- https://velog.io/@choiys0212/Scouter-%EC%82%AC%EC%9A%A9%EB%B2%95
+- https://dewble.tistory.com/entry/how-to-monitor-java-application
+- https://dewble.tistory.com/entry/how-to-server-monitoring-with-scouter
+- https://m.blog.naver.com/brainzsquare/223462066122
+- https://gunsdevlog.blogspot.com/2018/05/scouter-apm-active-service-xlog.html
+- https://www.slideshare.net/slideshow/2020-222749073/222749073
+- https://csg1353.tistory.com/148
+- https://gunsdevlog.blogspot.com/2017/07/scouter-apm-1.html
+- https://gunsdevlog.blogspot.com/2017/07/scouter-apm-2-12.html
+- https://gunsdevlog.blogspot.com/2017/07/scouter-apm-basic-monitoring-2.html
+- https://gunsdevlog.blogspot.com/2018/05/scouter-apm-active-service-xlog.html
+- https://gunsdevlog.blogspot.com/2018/05/scouter-apm-xlog-howto.html
+- https://dewble.tistory.com/entry/how-to-server-monitoring-with-scouter
+- https://dewble.tistory.com/entry/how-to-use-scouter-essential-graphs
+- https://dewble.tistory.com/entry/what-are-heap-memory-and-garbage-collection-gc
+- https://dewble.tistory.com/entry/how-to-monitor-java-application
+- https://dewble.tistory.com/entry/how-to-use-object-request-in-scouter
+- https://dewble.tistory.com/entry/how-to-use-scouter-xlog
+- https://developercc.tistory.com/31
+- https://onestone-note.tistory.com/147
+- https://black9p.github.io/2018/05/19/Scouter-%EA%B8%B0%EB%B3%B8/
+- https://developers.kakao.com/docs/latest/ko/message-template/common
+- https://csg1353.tistory.com/153
+***
+sftp
+- tabby: https://tabby.sh/
+- MobaXterm: https://mobaxterm.mobatek.net/
+***
+- https://www.flaticon.com/packs/coding-74
+- https://devyihyun.tistory.com/21
+- https://mac.eltima.com/ko/alternative-filezilla-mac.html

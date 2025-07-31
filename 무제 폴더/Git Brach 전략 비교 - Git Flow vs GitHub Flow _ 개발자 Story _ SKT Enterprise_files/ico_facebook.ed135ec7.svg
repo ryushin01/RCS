@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g transform="translate(-1 -4)">
+        <circle data-name="타원 353" cx="16" cy="16" r="16" transform="translate(1 4)" style="fill:none"/>
+        <path data-name="패스 13054" d="M6.316 19H2.559V9.634H0V6.585h2.559v-2.17C2.559 1.844 3.691 0 7.438 0c.792 0 2.037.16 2.037.16v2.831H8.168c-1.331 0-1.851.4-1.851 1.525v2.069h3.108l-.277 3.049H6.316z" transform="translate(12 10)" style="fill:#1877f2"/>
+    </g>
+</svg>

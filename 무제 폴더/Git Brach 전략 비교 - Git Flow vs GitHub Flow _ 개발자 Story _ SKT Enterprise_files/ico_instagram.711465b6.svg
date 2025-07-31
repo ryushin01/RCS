@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <linearGradient id="esu71jpwsa" x1=".916" y1=".084" x2=".104" y2=".896" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#7b479b"/>
+            <stop offset="0" stop-color="#c72fbe"/>
+            <stop offset=".16" stop-color="#c30a9c"/>
+            <stop offset=".3" stop-color="#d40362"/>
+            <stop offset=".354" stop-color="#dd0147"/>
+            <stop offset=".43" stop-color="#ea001e"/>
+            <stop offset=".519" stop-color="#f50401"/>
+            <stop offset=".604" stop-color="#f72105"/>
+            <stop offset=".877" stop-color="#fb7b13"/>
+            <stop offset="1" stop-color="#fdc01e"/>
+        </linearGradient>
+        <linearGradient id="gpcgccwsab" x1=".837" y1=".168" x2=".185" y2=".809" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#c61bac"/>
+            <stop offset="1" stop-color="#cd0574"/>
+        </linearGradient>
+        <linearGradient id="b5ti7ppy2c" x1=".872" y1=".156" x2=".155" y2=".814" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#d5035e"/>
+            <stop offset=".132" stop-color="#dd0147"/>
+            <stop offset=".516" stop-color="#f00512"/>
+            <stop offset="1" stop-color="#f84809"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(-1480 -4)">
+        <circle data-name="타원 359" cx="16" cy="16" r="16" transform="translate(1480 4)" style="fill:none"/>
+        <g data-name="ic_insta">
+            <path data-name="패스 13061" d="M2132.065 401.22c2.4 0 2.688.009 3.637.052a4.983 4.983 0 0 1 1.671.31 2.98 2.98 0 0 1 1.708 1.708 4.985 4.985 0 0 1 .31 1.671c.043.949.052 1.234.052 3.637s-.009 2.688-.052 3.637a4.983 4.983 0 0 1-.31 1.671 2.979 2.979 0 0 1-1.708 1.708 4.981 4.981 0 0 1-1.671.31c-.949.043-1.233.052-3.637.052s-2.688-.009-3.637-.052a4.972 4.972 0 0 1-1.671-.31 2.981 2.981 0 0 1-1.708-1.708 4.991 4.991 0 0 1-.31-1.671c-.043-.949-.052-1.233-.052-3.637s.009-2.688.052-3.637a4.994 4.994 0 0 1 .31-1.671 2.982 2.982 0 0 1 1.708-1.708 4.973 4.973 0 0 1 1.671-.31c.949-.043 1.234-.052 3.637-.052m0-1.622c-2.445 0-2.751.01-3.711.054a6.611 6.611 0 0 0-2.185.418 4.6 4.6 0 0 0-2.632 2.632 6.6 6.6 0 0 0-.418 2.185c-.044.96-.054 1.266-.054 3.711s.01 2.751.054 3.711a6.6 6.6 0 0 0 .418 2.185 4.6 4.6 0 0 0 2.632 2.632 6.611 6.611 0 0 0 2.185.418c.96.044 1.266.054 3.711.054s2.751-.01 3.711-.054a6.609 6.609 0 0 0 2.185-.418 4.6 4.6 0 0 0 2.632-2.632 6.614 6.614 0 0 0 .418-2.185c.043-.96.054-1.266.054-3.711s-.01-2.751-.054-3.711a6.613 6.613 0 0 0-.418-2.185 4.6 4.6 0 0 0-2.632-2.632 6.609 6.609 0 0 0-2.185-.418c-.96-.044-1.267-.054-3.711-.054" style="fill:url(#esu71jpwsa)" transform="translate(-636.065 -388.598)"/>
+            <path data-name="패스 13062" d="M2620.521 521.937a1.031 1.031 0 1 1-1.031-1.031 1.031 1.031 0 0 1 1.031 1.031" transform="translate(-1118.656 -506.771)" style="fill:url(#gpcgccwsab)"/>
+            <path data-name="패스 13063" d="M2302.71 574.956a4.29 4.29 0 1 0 4.291 4.29 4.29 4.29 0 0 0-4.291-4.29zm0 7.152a2.863 2.863 0 1 1 2.863-2.862 2.862 2.862 0 0 1-2.863 2.862z" transform="translate(-806.71 -559.246)" style="fill:url(#b5ti7ppy2c)"/>
+        </g>
+    </g>
+</svg>
